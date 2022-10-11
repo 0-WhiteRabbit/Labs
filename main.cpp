@@ -1,5 +1,19 @@
 #include <iostream>
-#include "train.h"
+#include "line.h"
+
+
+int getValue(double &a) {
+    std::cin >> a;
+    if (std::cin.eof()) {
+        return 0;
+    }
+    if (!std::cin.good()) {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return -1;
+    }
+    return 1;
+}
 
 int getInt(int &a) {
     std::cin >> a;
@@ -15,23 +29,28 @@ int getInt(int &a) {
 }
 
 void print_menu() {
-    printf("\n1 - create empty train\n"
-           "2 - read train\n"
-           "3 - reserved seat\n"
-           "4 - delete carriage\n"
-           "5 - get busy seat in carriage\n"
-           "6 - add carriage\n"
-           "7 - delete carriages\n"
-           "8 - get num of busy seat\n"
-           "9 - print train\n"
-           "10 - exit.\n");
+    printf("\n1 - get y from x\n"
+           "2 - get r from phi\n"
+           "3 - get R\n"
+           "4 - get area AOM1\n"
+           "5 - get volume\n"
+           "6 - get area OU’ - OV’\n"
+           "7 - exit.\n");
 }
 
 int main() {
-    int k, buf;
-    Train main_class;
+    double a_x;
+    int buf;
+
+    std::cout << "Enter x of a: " << std::endl;
+    buf = getValue(a_x);
+    if (buf == 0)
+        return 0;
+
+    Line main_class(a_x;
 
     while (true) {
+        int k;
         print_menu();
         do {
             std::cout << ">>> " << std::endl;
@@ -42,126 +61,45 @@ int main() {
         } while (buf == -1);
 
         switch (k) {
-            case 10:
+            case 7:
                 std::cout << "Exit!" << std::endl;
                 return 0;
             case 1:
-                main_class = Train();
+                double x;
+                std::cout << "Input x: " << std::endl;
+                getValue(x);
+                try {
+                    std::cout << "Y: " << main_class.y_dependence_on_x(x) << " " << -main_class.y_dependence_on_x(x) << std::endl;
+                }
+                catch (const std::invalid_argument& e) {
+                    std::cout << "SQRT from negative number!" << std::endl;
+                }
                 break;
             case 2: {
-                std::cin >> main_class;
+                double phi;
+                std::cout << "Input phi: " << std::endl;
+                getValue(phi);
+                if (main_class.r_dependence_on_phi(phi) < 0) {
+                    std::cout << "Out of range!\n";
+                    break;
+                }
+                std::cout << "r: " << main_class.r_dependence_on_phi(phi) << std::endl;
                 break;
             }
             case 3: {
-                int num;
-                std::cout << "Enter carriages number: " << std::endl;
-                do {
-                    std::cout << ">>> ";
-                    buf = getInt(num);
-                    if (buf == 0) {
-                        return 0;
-                    }
-                } while (buf == -1);
-                try {
-                    main_class.reserved_seat(num, 1);
-                }
-                catch (const std::invalid_argument& e) {
-                    std::cout << "Bad carriages number!" << std::endl;
-                }
+                std::cout << "R: " << main_class.curvature_radius() << std::endl;
                 break;
             }
             case 4: {
-                int num[] = {0};
-                std::cout << "Delete carriages number: " << std::endl;
-                do {
-                    std::cout << ">>> ";
-                    buf = getInt(num[0]);
-                    if (buf == 0) {
-                        return 0;
-                    }
-                } while (buf == -1);
-
-                try {
-                    main_class.change_train(1, num);
-                }
-                catch (const std::invalid_argument& e) {
-                    std::cout << "Bad carriages number!" << std::endl;
-                }
+                std::cout << "Area: " << main_class.loop_area() << std::endl;
                 break;
             }
             case 5: {
-                int num;
-                printf("Enter carriages number: \n");
-                do {
-                    std::cout << ">>> ";
-                    buf = getInt(num);
-                    if (buf == 0) {
-                        return 0;
-                    }
-                } while (buf == -1);
-                try {
-                    std::cout << main_class.number_of_reserved_seats(num) << std::endl;
-                }
-                catch (const std::invalid_argument& e) {
-                    std::cout << "Bad carriages number!" << std::endl;
-                }
+                std::cout << "Volume: " << main_class.volume_x() << std::endl;
                 break;
             }
             case 6: {
-                int num;
-                printf("Enter carriages capacity: \n");
-                do {
-                    std::cout << ">>> ";
-                    buf = getInt(num);
-                    if (buf == 0) {
-                        return 0;
-                    }
-                } while (buf == -1);
-                Carriage t = {num, 0};
-                try {
-                    main_class.add_carriage(t);
-                }
-                catch (const std::invalid_argument& e) {
-                    std::cout << "Train end!" << std::endl;
-                }
-                break;
-            }
-            case 7: {
-                int num;
-                printf("Count delete carriages number: \n");
-                do {
-                    std::cout << ">>> ";
-                    buf = getInt(num);
-                    if (buf == 0) {
-                        return 0;
-                    }
-                } while (buf == -1);
-                int *arr = new int[num];
-                for (int i=0; i < num; ++i) {
-                    do {
-                        std::cout << "\n" << i << " >>> ";
-                        buf = getInt(arr[i]);
-                        if (buf == 0) {
-                            return 0;
-                        }
-                    } while (buf == -1);
-                }
-
-                try {
-                    main_class.change_train(1, arr);
-                }
-                catch (const std::invalid_argument& e) {
-                    std::cout << "Bad carriages number!" << std::endl;
-                }
-                delete[] arr;
-                break;
-            }
-            case 8: {
-                std::cout << main_class.number_of_passenger() << std::endl;
-                break;
-            }
-            case 9: {
-                std::cout << main_class;
+                std::cout << "Volume x: " << main_class.volume() << std::endl;
                 break;
             }
             default:
@@ -169,5 +107,4 @@ int main() {
                 break;
         }
     }
-    return 0;
 }
