@@ -6,5 +6,5 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(tests test.cpp ../train.cpp ../train.h)
+add_executable(tests test.cpp ../train.cpp ../train.h ../train_2.cpp ../train_2.h)
 target_link_libraries(tests gtest gtest_main)
