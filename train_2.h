@@ -20,6 +20,9 @@ public:
     }
 
     [[nodiscard]] Carriage get_carriages(int number) const {
+        if (number < 1 || number > train_length) {
+            throw std::invalid_argument("incorrect number");
+        }
         return carriages[number-1];
     }
 

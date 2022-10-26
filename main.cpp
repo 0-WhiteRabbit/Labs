@@ -139,7 +139,7 @@ int main() {
                 int *arr = new int[num];
                 for (int i=0; i < num; ++i) {
                     do {
-                        std::cout << "\n" << i << " >>> ";
+                        std::cout << "\n" << i+1 << " >>> ";
                         buf = getInt(arr[i]);
                         if (buf == 0) {
                             return 0;
@@ -148,7 +148,7 @@ int main() {
                 }
 
                 try {
-                    main_class.change_train(1, arr);
+                    main_class.change_train(num, arr);
                 }
                 catch (const std::invalid_argument& e) {
                     std::cout << "Bad carriages number!" << std::endl;

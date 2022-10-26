@@ -13,7 +13,7 @@ std::istream& operator >> (std::istream& in, Train& train) {
         in >> carriage.capacity;
         std::cout << "Input how many seats are busy: ";
         in >> carriage.busy;
-        if (!in || carriage.busy < 0 || carriage.busy < carriage.capacity
+        if (!in || carriage.busy < 0 || carriage.busy > carriage.capacity
             || carriage.capacity < 0) {
             std::cout << "Error!\n";
             --i;
@@ -35,13 +35,13 @@ std::ostream& operator << (std::ostream &os, const Train &train) {
 
 void Train::change_train(int count, int *numbers) {
     std::sort(numbers, numbers +  sizeof(int)*(count-1));
-    for (int i = numbers[0], j = 0; i < train_length; ++i) {
+    for (int i = numbers[0], j = 1; i < train_length; ++i) {
         carriages[i-j] = carriages[i];
-        if (i == numbers[j] && j <= count) {
+        if (i == numbers[j]-1 && j <= count-1) {
             ++j;
-            --train_length;
         }
     }
+    train_length -= count;
 }
 
 void Train::add_carriage(Carriage carriage) {

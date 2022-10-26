@@ -45,4 +45,8 @@ public:
     void change_train(int count, int *numbers);
 };
 
+std::istream& operator >> (std::istream& in, Train& train);
+std::ostream& operator << (std::ostream &os, const Train &train);
+
+
 #endif //LAB_3_TRAIN_H

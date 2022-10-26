@@ -74,6 +74,9 @@ void Train::reserved_seat(int number, int quantity) {
 }
 
 void Train::set_carriage(int number, Carriage carriage) {
+    if (number < 1 || number > train_length) {
+        throw std::invalid_argument("incorrect number");
+    }
     carriages[number-1].capacity = carriage.capacity;
     carriages[number-1].busy = carriage.busy;
 }
