@@ -52,4 +52,7 @@ public:
     Train operator= (Train train);
 };
 
+std::istream& operator >> (std::istream& in, Train& train);
+std::ostream& operator << (std::ostream &os, const Train &train);
+
 #endif //TESTS_TRAIN_2_H

@@ -50,4 +50,10 @@ public:
     Train operator= (Train train);
 };
 
+std::istream& operator >> (std::istream& in, Train& train);
+std::ostream& operator << (std::ostream &os, const Train &train);
+
+Train operator +(Train train1, Train train2);
+Train operator +(Train train, Carriage carriage);
+
 #endif //TESTS_TRAIN_2_H

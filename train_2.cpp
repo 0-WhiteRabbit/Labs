@@ -13,7 +13,7 @@ std::istream& operator >> (std::istream& in, Train& train) {
         in >> carriage.capacity;
         std::cout << "Input how many seats are busy: ";
         in >> carriage.busy;
-        if (!in || carriage.busy < 0 || carriage.busy < carriage.capacity
+        if (!in || carriage.busy < 0 || carriage.busy > carriage.capacity
             || carriage.capacity < 0) {
             std::cout << "Error!\n";
             --i;
@@ -100,6 +100,22 @@ Train operator +(Train train, Carriage carriage) {
     tmp.set_carriage(tmp.get_train_length(), carriage);
     return tmp;
 }
+
+Train operator +(Train train1, Train train2) {
+    Train tmp;
+    if (train1.get_train_length() + train2.get_train_length() > 99) {
+        throw std::invalid_argument("Can't stack these trains");
+    }
+    tmp.set_train_length(train1.get_train_length() + train2.get_train_length());
+    for (int i = 0; i < train1.get_train_length(); ++i) {
+        tmp.set_carriage(i+1, train1.get_carriages(i+1));
+    }
+    for (int i = 0; i < train2.get_train_length(); ++i) {
+        tmp.set_carriage(i+train1.get_train_length()+1, train2.get_carriages(i+1));
+    }
+    return tmp;
+}
+
 
 Train operator -(Train train, int num) {
     Train tmp;
