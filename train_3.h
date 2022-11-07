@@ -11,7 +11,7 @@ struct Carriage {
 
 class Train {
 private:
-    std::vector<Carriage> carriages;
+    Carriage *carriages = nullptr;
     int train_length;
 
 public:
@@ -36,7 +36,7 @@ public:
     }
 
     ~Train() {
-        carriages.clear();
+        delete[] carriages;
     }
 
     void reserved_seat(int number, int quantity);
@@ -54,5 +54,7 @@ public:
 
 std::istream& operator >> (std::istream& in, Train& train);
 std::ostream& operator << (std::ostream &os, const Train &train);
+
+Train operator +(Train train, Carriage carriage);
 
 #endif //TESTS_TRAIN_2_H

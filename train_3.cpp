@@ -34,20 +34,30 @@ std::ostream& operator << (std::ostream &os, const Train &train) {
 }
 
 void Train::change_train(int count, int *numbers) {
-    std::sort(numbers, numbers + sizeof(numbers[0])*(count-1));
-    for (int i = 0; i < count; ++i) {
-        if (numbers[i] >= 0 && numbers[i] <= train_length+i) {
-            carriages.erase(carriages.begin() + numbers[i] - i);
-            train_length--;
+    auto *tmp = new Carriage[train_length - count];
+    for (int i = 0, j = 0; i < train_length; ++i) {
+        tmp[i-j] = carriages[i];
+        if (i == numbers[j]-1 && j <= count-1) {
+            ++j;
         }
     }
+    delete[] carriages;
+    carriages = tmp;
+    train_length -= count;
 }
 
 void Train::add_carriage(Carriage carriage) {
-    if (train_length > 99) {
-        throw std::invalid_argument("Bad train length");
+    if (carriages == nullptr) {
+        carriages = new Carriage[1];
+    } else {
+        auto *carriage_tmp = new Carriage[train_length+1];
+        for (int i = 0; i < train_length; ++i) {
+            carriage_tmp[i] = carriages[i];
+        }
+        delete[] carriages;
+        carriages = carriage_tmp;
     }
-    carriages.push_back(carriage);
+    carriages[train_length] = carriage;
     ++train_length;
 }
 

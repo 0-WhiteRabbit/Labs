@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include "../train.h"
+#include "../train_3.h"
 #include "gtest/gtest.h"
 
 
@@ -67,9 +67,9 @@ TEST(test_del_carriage, number_of_reserved_seats_2) {
     train.add_carriage(tmp);
     train.add_carriage(tmp1);
     train.add_carriage(tmp2);
-    int buf[2] = {0, 1};
+    int buf[2] = {1, 2};
     train.change_train(2, buf);
-    ASSERT_DOUBLE_EQ(0, train.number_of_passenger());
+    ASSERT_DOUBLE_EQ(2, train.number_of_passenger());
 }
 
 TEST(exception_test, invalid_seat) {
