@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.21)
-project(lab_3)
+project(lab_3_external)
 
-set(CMAKE_CXX_STANDARD 17)
-add_subdirectory(test)
-ADD_LIBRARY( train STATIC train_3.cpp train_3.h)
+set(CMAKE_CXX_STANDARD 14)
 
-add_executable(lab_3 main1.cpp)
+ADD_LIBRARY(plat STATIC lib/pcb.hpp lib/pcb.cpp)
 
-TARGET_LINK_LIBRARIES(lab_3 train)
+add_executable(lab_3_external main.cpp)
+
+TARGET_LINK_LIBRARIES(lab_3_external plat)
