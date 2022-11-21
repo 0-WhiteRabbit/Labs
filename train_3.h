@@ -49,7 +49,16 @@ public:
 
     void change_train(int count, int *numbers);
 
-    Train operator= (Train train);
+    Train& operator= (Train &train);
+
+    //copy constructor
+    Train(const Train& other);
+
+    //move constructor
+    Train(Train&& obj)  noexcept;
+
+    //move operator
+    Train& operator=(Train&& obj) noexcept;
 };
 
 std::istream& operator >> (std::istream& in, Train& train);

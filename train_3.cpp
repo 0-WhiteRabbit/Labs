@@ -92,12 +92,39 @@ void Train::set_carriage(int number, Carriage carriage) {
     carriages[number-1].busy = carriage.busy;
 }
 
-Train Train::operator =(Train train) {
+Train& Train::operator =(Train& train) {
     train_length = train.train_length;
     for (int i = 0; i < train_length; ++i) {
         carriages[i].busy = train.carriages[i].busy;
         carriages[i].capacity = train.carriages[i].capacity;
     }
+    return *this;
+}
+
+Train::Train(const Train &other) : train_length(other.train_length) {
+    carriages = new Carriage[train_length];
+    for (int i=0; i < other.train_length; ++i) {
+        carriages[i] = other.carriages[i];
+    }
+}
+
+Train::Train(Train &&obj) noexcept {
+    carriages = obj.carriages;
+    train_length = obj.train_length;
+
+    obj.train_length = 0;
+}
+
+Train &Train::operator=(Train &&obj) noexcept {
+    if (&obj == this)
+        return *this;
+
+    delete[] carriages;
+
+    carriages = obj.carriages;
+    train_length = obj.train_length;
+    obj.train_length = 0;
+
     return *this;
 }
 
