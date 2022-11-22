@@ -16,6 +16,8 @@ public:
 
     int refresh();
     int bit();
+    int get_speed();
+    void add_effects(int* _effects);
 };
 
 
