@@ -2,27 +2,36 @@
 #define LAB_4_LANDSCAPE_H
 
 #include "fields/Field.h"
-#include "Enemie.h"
+#include "fields/Forest.h"
 #include "tower/Tower.h"
+#include "other/Enemy.h"
+#include "other/Object.h"
+#include <vector>
 
 
 class Landscape{
 
 private:
-    Enemie *enemies;
-    Field *fields;
+    std::vector<Tower> towers;
+    std::vector<Object> objects;
+    std::vector<std::vector<Field>> fields;
+
+    const int* get_x_y_of_tower();
+    int strategy_comparator(Object& a1, Object& a2, Tower tmp);
+    int path_dfs(int x, int y, const Object& castle, int** have_been,  int limit);
+    const int *get_next_pos(const Object &t);
 
 public:
     int n, m;
+    int tik=1;
 
     ~Landscape();
-    Landscape(int init_n, int init_m): n(init_n), m(init_m) {}
+    Landscape(int init_n, int init_m);
 
-    void refresh();
-    void build(Tower t, int x, int y);
-    void set_field(int n, int m, Field);
-    void check_correct();
-
+    int refresh(); // 0 - if game over
+    void build(Tower t);
+    void set_field(int n, int m, Field f);
+    int check_correct();
 };
 
 

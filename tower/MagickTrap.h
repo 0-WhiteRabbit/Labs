@@ -9,8 +9,7 @@ class MagickTrap: Tower {
 public:
     int type = 2;
 
-    void level_up() final {}
-
+    Specification specification = {5, 1, 0, 30};
 };
 
 

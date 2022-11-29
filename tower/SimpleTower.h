@@ -7,8 +7,7 @@ class SimpleTower: Tower {
 
 public:
     int type = 1;
-
-    void level_up() final {}
+    Specification specification = {10, 1, 10, 60}; // specification: 0 - cost, 1 - radius, 2 - hit, 3 - speed
 };
 
 

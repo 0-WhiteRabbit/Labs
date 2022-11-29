@@ -4,8 +4,6 @@
 
 class Field {
 
-private:
-
 public:
     int type=0;
     int can_build_tower=0;
