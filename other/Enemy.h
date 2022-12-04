@@ -4,10 +4,12 @@
 #include "Object.h"
 
 
-class Enemy: Object {
+class Enemy: virtual Object {
 
 private:
     Effect effects = {0, 0, 0};
+    int path_dfs(int x, int y, const Object& castle, int** have_been, int limit, Landscape &tmp);
+    const int *get_next_pos(Landscape &tmp);
 
 public:
     int time=0;
@@ -17,7 +19,7 @@ public:
 
     Enemy(int init_gold, int init_time, int init_hill): gold(init_gold), time(init_time), hill(init_hill) {}
 
-    int refresh(int tik);
+    int refresh(Landscape &tmp);
     int bit(int bit_hit);
     int get_speed();
     void add_effects(Effect _effects);

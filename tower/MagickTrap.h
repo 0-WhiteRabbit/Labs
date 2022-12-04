@@ -7,7 +7,7 @@
 class MagickTrap: Tower {
 
 public:
-    int type = 2;
+    int type = 12;
 
     Specification specification = {5, 1, 0, 30};
 };

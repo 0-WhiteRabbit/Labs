@@ -2,11 +2,12 @@
 #define LAB_4_LAIR_H
 
 #include <vector>
+#include "../Landscape.h"
 #include "Enemy.h"
 #include "Object.h"
 
 
-class Lair: Object {
+class Lair: virtual Object {
 
 private:
     std::vector <Enemy> queue;
@@ -16,7 +17,7 @@ public:
     int can_build_tower=1;
 
     void add_enemy(const Enemy& t);
-    void* lair_refresh(int tik) final;
+    void lair_refresh(Landscape &tmp);
 };
 
 

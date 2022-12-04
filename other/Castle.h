@@ -4,7 +4,7 @@
 #include "Object.h"
 
 
-class Castle: Object {
+class Castle: virtual Object {
 
 public:
     char *name;
@@ -15,8 +15,8 @@ public:
 
     Castle(char *init_name, int new_max_stability): name(init_name), max_stability(new_max_stability), current_stability(new_max_stability) {}
 
-    int hit_castle(int hit);
-    int refresh(int tik) final;
+    int bit(int hit);
+    int refresh(Landscape &tmp) final;
 };
 
 

@@ -10,10 +10,10 @@ struct Specification {
     int speed;
 };
 
-class Tower {
+class Tower: virtual Object {
 
 public:
-    int type=0;
+    int type=10;
     int strategy=0;
     int level=1;
     Specification specification = {10, 1, 1, 1};
@@ -24,6 +24,10 @@ public:
         specification.cost += 5;
         specification.radius += 1;
     }
+
+    int refresh(Landscape &tmp);
+
+    int strategy_comparator(Object& a1, Object& a2, int tower_x, int tower_y) const;
 };
 
 
