@@ -22,7 +22,7 @@ public:
             res_n = n;
         }
 
-        data[n] = arg;
+        data[n-1] = arg;
     }
 
     void reserve(int _n) {
