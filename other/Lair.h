@@ -7,17 +7,17 @@
 #include "Object.h"
 
 
-class Lair: virtual Object {
+class Lair: virtual public Object {
 
 private:
-    std::vector <Enemy> queue;
+    Vector<Enemy*> queue;
 
 public:
-    int type=3;
     int can_build_tower=1;
 
-    void add_enemy(const Enemy& t);
-    void lair_refresh(Landscape &tmp);
+    virtual int type() {return 3;}
+    void add_enemy(Enemy *t);
+    int refresh(Landscape &tmp) override;
 };
 
 

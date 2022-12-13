@@ -12,9 +12,9 @@ int Enemy::refresh(Landscape &tmp) {
     }
 
     Object *tmp1;
-    for (auto & j: tmp.objects) {
-        if (j.type == 1) {
-            tmp1 = &j;
+    for (int j=0; j < tmp.objects.size(); ++j) {
+        if (tmp.objects[j]->type() == 1) {
+            tmp1 = tmp.objects[j];
         }
     }
 
@@ -40,41 +40,46 @@ void Enemy::add_effects(Effect _effects) {
 }
 
 int Enemy::path_dfs(int x, int y, const Object& castle, int** have_been, int limit, Landscape &tmp) {
-    have_been[x][y] = 1;
+    have_been[x][y] = tmp.n*tmp.m+10;
     ++limit;
     if (limit > tmp.n*tmp.m) {
         return 0;
     }
     if (x == castle.x && castle.y == y) {
+        have_been[x][y] = limit+1;
         return 1;
     }
 
     int flag = 0;
-    if (x+1 < tmp.n && tmp.fields[x+1][y].can_go && !have_been[x+1][y]) {
+    if (x+1 < tmp.n && tmp.fields[x+1][y]->can_go() && !have_been[x+1][y]) {
         flag = path_dfs(x+1, y, castle, have_been, limit, tmp);
     }
-    if (y < tmp.m && tmp.fields[x][y+1].can_go && !have_been[x][y+1]) {
+    if (y < tmp.m && tmp.fields[x][y+1]->can_go() && !have_been[x][y+1]) {
         flag = path_dfs(x, y+1, castle, have_been, limit, tmp);
     }
-    if (x-1 >= 0 && tmp.fields[x-1][y].can_go && !have_been[x-1][y]) {
+    if (x-1 >= 0 && tmp.fields[x-1][y]->can_go() && !have_been[x-1][y]) {
         flag = path_dfs(x-1, y, castle, have_been, limit, tmp);
     }
-    if (y >= 0 && tmp.fields[x][y-1].can_go && !have_been[x][y-1]) {
+    if (y > 0 && tmp.fields[x][y-1]->can_go() && !have_been[x][y-1]) {
         flag = path_dfs(x, y-1, castle, have_been, limit, tmp);
     }
 
+    if (flag == 1)
+        have_been[x][y] = limit+1;
     return flag;
 }
+
 
 const int *Enemy::get_next_pos(Landscape &tmp) {
     int *pos = new int[2];
     int **have_been = new int*[tmp.n];
     Object *tmp1;
-    for (auto & i: tmp.objects) {
-        if (i.type == 1) {
-            tmp1 = &i;
+    for (int i=0; i < tmp.objects.size(); ++i) {
+        if (tmp.objects[i]->type() == 1) {
+            tmp1 = tmp.objects[i];
         }
     }
+
     for (int i=0; i < tmp.n; ++i) {
         have_been[i] = new int[tmp.m];
         for (int j=0; j < tmp.m; ++j) {
@@ -83,6 +88,36 @@ const int *Enemy::get_next_pos(Landscape &tmp) {
     }
 
     path_dfs(x, y, *tmp1, have_been, 0, tmp);
+
+    int min_l = tmp.n*tmp.m+10;
+    pos[0] = x;
+    pos[1] = y;
+
+    if (x+1 < tmp.n && tmp.fields[x+1][y]->can_go()) {
+        min_l = have_been[x+1][y];
+        pos[0] = x+1;
+        pos[1] = y;
+    }
+    if (y < tmp.m && tmp.fields[x][y+1]->can_go() && min_l > have_been[x][y+1]) {
+        min_l = have_been[x][y+1];
+        pos[0] = x;
+        pos[1] = y+1;
+    }
+    if (x-1 >= 0 && tmp.fields[x-1][y]->can_go() && min_l > have_been[x-1][y]) {
+        min_l = have_been[x-1][y];
+        pos[0] = x-1;
+        pos[1] = y;
+    }
+    if (y > 0 && tmp.fields[x][y-1]->can_go() && min_l > have_been[x][y-1]) {
+        min_l = have_been[x][y-1];
+        pos[0] = x;
+        pos[1] = y-1;
+    }
+
+    for (int i=0; i < tmp.n; ++i) {
+        delete[] have_been[i];
+    }
+    delete[] have_been;
 
     return pos;
 }

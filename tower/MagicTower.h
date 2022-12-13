@@ -4,11 +4,15 @@
 #include "Tower.h"
 
 
-class MagicTower: Tower {
+class MagicTower: public Tower {
+
+private:
+    Specification specification = {15, 1, 5, 1};
 
 public:
-    int type = 13;
-    Specification specification = {15, 1, 5, 1};
+    int type() final {return 13;}
+    Specification get_specification() final { return specification;}
+
 };
 
 

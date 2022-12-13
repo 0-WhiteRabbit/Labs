@@ -4,10 +4,12 @@
 #include "Field.h"
 
 
-class Land: Field {
+class Land: public Field {
 
 public:
-    int type=4;
+    int type() override {return 4;}
+    int can_build_tower() override {return 1;}
+    int can_go() override {return 0;}
 
 };
 

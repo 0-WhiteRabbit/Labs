@@ -3,11 +3,11 @@
 
 
 class Field {
-
 public:
-    int type=0;
-    int can_build_tower=0;
-    int can_go=0;
+    virtual int type() {return 0;}
+    virtual int can_build_tower() {return 0;}
+    virtual int can_go() {return 0;}
+
 };
 
 

@@ -10,13 +10,14 @@ struct Specification {
     int speed;
 };
 
-class Tower: virtual Object {
+class Tower: virtual public Object {
+
+private:
+    Specification specification = {10, 1, 1, 1};
 
 public:
-    int type=10;
     int strategy=0;
     int level=1;
-    Specification specification = {10, 1, 1, 1};
     Effect effect = {0,0,0};
     int x=-1, y=-1;
 
@@ -25,7 +26,11 @@ public:
         specification.radius += 1;
     }
 
-    int refresh(Landscape &tmp);
+    virtual Specification get_specification() { return specification;}
+
+    int type() override {return 10;}
+
+    int refresh(Landscape &tmp) final;
 
     int strategy_comparator(Object& a1, Object& a2, int tower_x, int tower_y) const;
 };

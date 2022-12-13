@@ -8,8 +8,9 @@
 class Road: Field {
 
 public:
-    int type=1;
-    int can_go=1;
+    int type() override {return 1;}
+    int can_build_tower() override {return 0;}
+    int can_go() override {return 1;}
 };
 
 

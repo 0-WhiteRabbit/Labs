@@ -17,16 +17,18 @@ struct Effect {
 
 class Object {
 
-public:
-    int x=0, y=0;
-    int type=0;
+private:
     int hill=0;
 
+public:
+    int x=0, y=0;
+    virtual int type() {return 0;}
+
     virtual int refresh(Landscape &tmp) {return 1;}
-    virtual void lair_refresh(Landscape &tmp) {}
     virtual void add_effects(Effect _effects) {}
     virtual int get_speed() {return 0;}
     virtual int bit(int hit) {return 0;}
+    virtual int get_hill() {return hill;}
 };
 
 #endif //LAB_4_OBJECT_H

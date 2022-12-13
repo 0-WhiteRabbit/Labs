@@ -1,15 +1,23 @@
+#include <stdexcept>
 #include "Landscape.h"
 
 Landscape::~Landscape() {
-    objects.clear();
+    for (int i=0; i<n; ++i) {
+        for (int j=0; j<m; ++j) {
+            delete fields[i][j];
+        }
+        fields[i].clear();
+    }
+
     fields.clear();
+    objects.clear();
 }
 
 int Landscape::refresh() {
     ++tik;
     int flag = 1;
-    for (auto & i: objects) { // refresh
-        flag = i.refresh(*this);
+    for (int i=0; i < objects.size(); ++i) { // refresh
+        flag = objects[i]->refresh(*this);
         if (flag == 0) {
             return 0;
         }
@@ -17,18 +25,22 @@ int Landscape::refresh() {
     return 1;
 }
 
-void Landscape::build(const Object& t) {
+void Landscape::build(Object* t) {
     objects.push_back(t);
 }
 
-void Landscape::set_field(int x, int y, Field tmp) {
+void Landscape::set_field(int x, int y, Field* tmp) {
+    if (x > n || y > m || x < 0 || y < 0) {
+        throw std::invalid_argument("Wrong x, y!");
+    }
+    delete fields[x][y];
     fields[x][y] = tmp;
 }
 
 int Landscape::check_correct() {
     int num_of_castle=0;
-    for (auto & object : objects) {
-        if (object.type == 1) {
+    for (int i=0; i < objects.size(); ++i) {
+        if (objects[i]->type() == 1) {
             ++num_of_castle;
         }
     }
@@ -43,11 +55,11 @@ int Landscape::check_correct() {
 Landscape::Landscape(int init_n, int init_m): n(init_n), m(init_m) {
     fields.reserve(n);
     for (int i=0; i < n; ++i) {
-        std::vector<Field> tmp;
-        tmp.reserve(m);
+        fields.push_back({});
+        fields[i].reserve(m);
         for (int j=0; j < m; ++j) {
-            tmp.push_back({});
+            Field *tmp2 = new Forest;
+            fields[i].push_back(tmp2);
         }
-        fields.push_back(tmp);
     }
 }
