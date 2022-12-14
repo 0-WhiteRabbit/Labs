@@ -15,7 +15,7 @@ private:
 
 public:
     int time=0; ///< Время, когда появляется враг
-    int gold=0; ///< золото, которое он несёт
+    int gold=0; ///< Золото, которое он несёт
 
     //! Конструктор, который следует использовать по умолчанию
     Enemy(int init_gold, int init_time, int init_hill): gold(init_gold), time(init_time), hill(init_hill) {}

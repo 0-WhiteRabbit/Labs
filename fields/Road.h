@@ -4,14 +4,13 @@
 
 #include "Field.h"
 
-
+//! Класс, описывающий дорогу
 class Road: virtual public Field {
-
 public:
+    //! Возвращает тип ячейки = 1
     int type() override {return 1;}
-    int can_build_tower() override {return 0;}
+    //! Сообщает, что враг может двигаться
     int can_go() override {return 1;}
-    ~Road() = default;
 };
 
 

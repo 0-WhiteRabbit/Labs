@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['objects_78',['objects',['../classLandscape.html#a77544ebbea5b5dcfadebf199131e9034',1,'Landscape']]]
+  ['max_5fstability_94',['max_stability',['../classCastle.html#afb903e231310bc5e27354e133f4ab0e2',1,'Castle']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_83',['y',['../classObject.html#a9ed372592e77352c832d721ad88b9aec',1,'Object']]]
+  ['weakening_100',['weakening',['../structEffect.html#a5c02a7e5f7378e8e81b94c53e3caa0a4',1,'Effect']]]
 ];

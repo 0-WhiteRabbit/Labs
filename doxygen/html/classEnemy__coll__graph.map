@@ -1,4 +1,4 @@
 <map id="Enemy" name="Enemy">
 <area shape="rect" id="node1" title="Класс с реализации логики врага" alt="" coords="5,80,72,107"/>
-<area shape="rect" id="node2" href="$classObject.html" title="Класс радитель для всех объектов" alt="" coords="7,5,71,32"/>
+<area shape="rect" id="node2" href="$classObject.html" title="Класс родитель для всех объектов" alt="" coords="7,5,71,32"/>
 </map>

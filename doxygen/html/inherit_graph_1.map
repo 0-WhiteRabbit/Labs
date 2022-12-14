@@ -1,6 +1,6 @@
 <map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="node1" href="$classField.html" title=" " alt="" coords="5,56,59,83"/>
-<area shape="rect" id="node2" href="$classForest.html" title=" " alt="" coords="107,5,169,32"/>
-<area shape="rect" id="node3" href="$classLand.html" title=" " alt="" coords="111,56,165,83"/>
-<area shape="rect" id="node4" href="$classRoad.html" title=" " alt="" coords="111,107,165,133"/>
+<area shape="rect" id="node1" href="$classField.html" title="Класс, описывающий ячейку игрового поля" alt="" coords="5,56,59,83"/>
+<area shape="rect" id="node2" href="$classForest.html" title="Класс, описывающий лес" alt="" coords="107,5,169,32"/>
+<area shape="rect" id="node3" href="$classLand.html" title="Класс, описывающий поле" alt="" coords="111,56,165,83"/>
+<area shape="rect" id="node4" href="$classRoad.html" title="Класс, описывающий дорогу" alt="" coords="111,107,165,133"/>
 </map>

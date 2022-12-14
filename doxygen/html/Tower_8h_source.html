@@ -74,46 +74,51 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;../other/Object.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="structSpecification.html">    6</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structSpecification.html">Specification</a> {</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keywordtype">int</span> cost;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">int</span> radius;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">int</span> hit;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> speed;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;};</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classTower.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTower.html">Tower</a>: <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code" href="classObject.html">Object</a> {</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="structSpecification.html">Specification</a> specification = {10, 1, 1, 1};</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="structEffect.html">Effect</a> effect = {0,0,0};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> strategy=0;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">int</span> level=1;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> level_up() {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        specification.cost += 5;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        specification.radius += 1;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structSpecification.html">Specification</a> get_specification() { <span class="keywordflow">return</span> specification;}</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classTower.html#af562ef71a940b0bddbb2d5bb0025d58c">   29</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTower.html#af562ef71a940b0bddbb2d5bb0025d58c">type</a>()<span class="keyword"> override </span>{<span class="keywordflow">return</span> 10;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTower.html#a25c67ee520f241049c84a718d7e12cbd">refresh</a>(<a class="code" href="classLandscape.html">Landscape</a> &amp;tmp) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">int</span> strategy_comparator(<a class="code" href="classObject.html">Object</a>&amp; a1, <a class="code" href="classObject.html">Object</a>&amp; a2, <span class="keywordtype">int</span> tower_x, <span class="keywordtype">int</span> tower_y) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structEffect.html">Effect</a> get_effect() {<span class="keywordflow">return</span> effect;}</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> set_Effect(<a class="code" href="structEffect.html">Effect</a> tmp) {effect = effect + tmp;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif //LAB_4_TOWER_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="structSpecification.html">    7</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structSpecification.html">Specification</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keywordtype">int</span> cost;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keywordtype">int</span> radius;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> hit;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">int</span> speed;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classTower.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTower.html">Tower</a>: <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code" href="classObject.html">Object</a> {</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="structSpecification.html">Specification</a> specification = {10, 1, 1, 1}; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="structEffect.html">Effect</a> effect = {0,0,0}; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="classTower.html#a7316c57f03770113cdfa208e5a9b84f3">   22</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTower.html#a7316c57f03770113cdfa208e5a9b84f3">strategy</a>=0; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classTower.html#a586375a39e6817983339b36225379da0">   23</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTower.html#a586375a39e6817983339b36225379da0">level</a>=1; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classTower.html#af660ef9fde9b86d285d3b0bdbaef6772">   26</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTower.html#af660ef9fde9b86d285d3b0bdbaef6772">level_up</a>() {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        specification.cost += 5;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        specification.radius += 1;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classTower.html#af1df8c04538c4d83280db9b1c26368cf">   32</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structSpecification.html">Specification</a> <a class="code" href="classTower.html#af1df8c04538c4d83280db9b1c26368cf">get_specification</a>() { <span class="keywordflow">return</span> specification;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classTower.html#af562ef71a940b0bddbb2d5bb0025d58c">   33</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTower.html#af562ef71a940b0bddbb2d5bb0025d58c">type</a>()<span class="keyword"> override </span>{<span class="keywordflow">return</span> 10;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTower.html#a25c67ee520f241049c84a718d7e12cbd">refresh</a>(<a class="code" href="classLandscape.html">Landscape</a> &amp;tmp) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classTower.html#a39f95585e952b8682f9038d46e995c1d">strategy_comparator</a>(<a class="code" href="classObject.html">Object</a>&amp; a1, <a class="code" href="classObject.html">Object</a>&amp; a2, <span class="keywordtype">int</span> tower_x, <span class="keywordtype">int</span> tower_y) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classTower.html#aa7e72605c50f94af2e39b1aa7cd9fc5e">   38</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="structEffect.html">Effect</a> <a class="code" href="classTower.html#aa7e72605c50f94af2e39b1aa7cd9fc5e">get_effect</a>() {<span class="keywordflow">return</span> effect;}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;};</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif //LAB_4_TOWER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassTower_html_a7316c57f03770113cdfa208e5a9b84f3"><div class="ttname"><a href="classTower.html#a7316c57f03770113cdfa208e5a9b84f3">Tower::strategy</a></div><div class="ttdeci">int strategy</div><div class="ttdoc">Стратегия башни</div><div class="ttdef"><b>Definition:</b> Tower.h:22</div></div>
 <div class="ttc" id="astructEffect_html"><div class="ttname"><a href="structEffect.html">Effect</a></div><div class="ttdoc">Структура для описания эффектов</div><div class="ttdef"><b>Definition:</b> Object.h:14</div></div>
-<div class="ttc" id="aclassObject_html"><div class="ttname"><a href="classObject.html">Object</a></div><div class="ttdoc">Класс радитель для всех объектов</div><div class="ttdef"><b>Definition:</b> Object.h:29</div></div>
+<div class="ttc" id="aclassTower_html_aa7e72605c50f94af2e39b1aa7cd9fc5e"><div class="ttname"><a href="classTower.html#aa7e72605c50f94af2e39b1aa7cd9fc5e">Tower::get_effect</a></div><div class="ttdeci">virtual Effect get_effect()</div><div class="ttdoc">Возвращает эффекты башни</div><div class="ttdef"><b>Definition:</b> Tower.h:38</div></div>
+<div class="ttc" id="aclassObject_html"><div class="ttname"><a href="classObject.html">Object</a></div><div class="ttdoc">Класс родитель для всех объектов</div><div class="ttdef"><b>Definition:</b> Object.h:29</div></div>
 <div class="ttc" id="aclassTower_html_a25c67ee520f241049c84a718d7e12cbd"><div class="ttname"><a href="classTower.html#a25c67ee520f241049c84a718d7e12cbd">Tower::refresh</a></div><div class="ttdeci">int refresh(Landscape &amp;tmp) final</div><div class="ttdoc">Функция для обновления состояния объекта, переопределяется в наследниках</div></div>
-<div class="ttc" id="aclassTower_html"><div class="ttname"><a href="classTower.html">Tower</a></div><div class="ttdef"><b>Definition:</b> Tower.h:13</div></div>
-<div class="ttc" id="astructSpecification_html"><div class="ttname"><a href="structSpecification.html">Specification</a></div><div class="ttdef"><b>Definition:</b> Tower.h:6</div></div>
+<div class="ttc" id="aclassTower_html_a586375a39e6817983339b36225379da0"><div class="ttname"><a href="classTower.html#a586375a39e6817983339b36225379da0">Tower::level</a></div><div class="ttdeci">int level</div><div class="ttdoc">Уровень башни</div><div class="ttdef"><b>Definition:</b> Tower.h:23</div></div>
+<div class="ttc" id="aclassTower_html"><div class="ttname"><a href="classTower.html">Tower</a></div><div class="ttdoc">Класс, описывающий башню</div><div class="ttdef"><b>Definition:</b> Tower.h:15</div></div>
+<div class="ttc" id="astructSpecification_html"><div class="ttname"><a href="structSpecification.html">Specification</a></div><div class="ttdoc">Структура, описывающая параметры башни: стоимость постройки, радиус действия, наносимый врагу урон,...</div><div class="ttdef"><b>Definition:</b> Tower.h:7</div></div>
 <div class="ttc" id="aclassLandscape_html"><div class="ttname"><a href="classLandscape.html">Landscape</a></div><div class="ttdoc">Класс с реализации игрового поля</div><div class="ttdef"><b>Definition:</b> Landscape.h:15</div></div>
-<div class="ttc" id="aclassTower_html_af562ef71a940b0bddbb2d5bb0025d58c"><div class="ttname"><a href="classTower.html#af562ef71a940b0bddbb2d5bb0025d58c">Tower::type</a></div><div class="ttdeci">int type() override</div><div class="ttdoc">Возвращает тип объекта, переопределяется в наследниках</div><div class="ttdef"><b>Definition:</b> Tower.h:29</div></div>
+<div class="ttc" id="aclassTower_html_af660ef9fde9b86d285d3b0bdbaef6772"><div class="ttname"><a href="classTower.html#af660ef9fde9b86d285d3b0bdbaef6772">Tower::level_up</a></div><div class="ttdeci">void level_up()</div><div class="ttdoc">Повышение уровня: увеличение радиуса на 1, стоимости на 5.</div><div class="ttdef"><b>Definition:</b> Tower.h:26</div></div>
+<div class="ttc" id="aclassTower_html_af562ef71a940b0bddbb2d5bb0025d58c"><div class="ttname"><a href="classTower.html#af562ef71a940b0bddbb2d5bb0025d58c">Tower::type</a></div><div class="ttdeci">int type() override</div><div class="ttdoc">Возвращает тип объекта, переопределяется в наследниках</div><div class="ttdef"><b>Definition:</b> Tower.h:33</div></div>
+<div class="ttc" id="aclassTower_html_af1df8c04538c4d83280db9b1c26368cf"><div class="ttname"><a href="classTower.html#af1df8c04538c4d83280db9b1c26368cf">Tower::get_specification</a></div><div class="ttdeci">virtual Specification get_specification()</div><div class="ttdoc">Возвращает параметры башни</div><div class="ttdef"><b>Definition:</b> Tower.h:32</div></div>
+<div class="ttc" id="aclassTower_html_a39f95585e952b8682f9038d46e995c1d"><div class="ttname"><a href="classTower.html#a39f95585e952b8682f9038d46e995c1d">Tower::strategy_comparator</a></div><div class="ttdeci">int strategy_comparator(Object &amp;a1, Object &amp;a2, int tower_x, int tower_y) const</div><div class="ttdoc">Выбирает стратегию башни</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой &#160;<a href="http://www.doxygen.org/index.html">

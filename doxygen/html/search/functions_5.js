@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_2b_71',['operator+',['../structEffect.html#a270a0561e2688aac87be40f95630a58b',1,'Effect']]]
+  ['level_5fup_84',['level_up',['../classTower.html#af660ef9fde9b86d285d3b0bdbaef6772',1,'Tower']]]
 ];

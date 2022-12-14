@@ -74,12 +74,11 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Tower.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classMagicTower.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classMagicTower.html">MagicTower</a>: <span class="keyword">public</span> <a class="code" href="classTower.html">Tower</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="structSpecification.html">Specification</a> specification = {15, 1, 5, 1};</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="structEffect.html">Effect</a> effect = {1,0,1};</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="structSpecification.html">Specification</a> specification = {15, 1, 5, 1}; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="structEffect.html">Effect</a> effect = {1,0,1}; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="classMagicTower.html">MagicTower</a>(<a class="code" href="structEffect.html">Effect</a> t) {</div>
@@ -88,19 +87,22 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
 <div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="classMagicTower.html#a570554a53f80f4a08805f37386e5aa46">   19</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classMagicTower.html#a570554a53f80f4a08805f37386e5aa46">type</a>() final {<span class="keywordflow">return</span> 13;}</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="structSpecification.html">Specification</a> get_specification() final { <span class="keywordflow">return</span> specification;}</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="structEffect.html">Effect</a> get_effect()<span class="keyword"> override </span>{<span class="keywordflow">return</span> effect;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> set_Effect(<a class="code" href="structEffect.html">Effect</a> tmp)<span class="keyword"> override </span>{effect = effect + tmp;}</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif //LAB_4_MAGICTOWER_H</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classMagicTower.html#afdd773f04417789ea163bf0dbdad6b53">   21</a></span>&#160;    <a class="code" href="structSpecification.html">Specification</a> <a class="code" href="classMagicTower.html#afdd773f04417789ea163bf0dbdad6b53">get_specification</a>() final { <span class="keywordflow">return</span> specification;}</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classMagicTower.html#a6958946ae8a4eead19a0ccfa298486d0">   23</a></span>&#160;    <a class="code" href="structEffect.html">Effect</a> <a class="code" href="classMagicTower.html#a6958946ae8a4eead19a0ccfa298486d0">get_effect</a>()<span class="keyword"> override </span>{<span class="keywordflow">return</span> effect;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="classMagicTower.html#a1a3bfb6f65dce1328d8517fdf26eefba">   25</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classMagicTower.html#a1a3bfb6f65dce1328d8517fdf26eefba">set_Effect</a>(<a class="code" href="structEffect.html">Effect</a> tmp) {effect = effect + tmp;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif //LAB_4_MAGICTOWER_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructEffect_html"><div class="ttname"><a href="structEffect.html">Effect</a></div><div class="ttdoc">Структура для описания эффектов</div><div class="ttdef"><b>Definition:</b> Object.h:14</div></div>
+<div class="ttc" id="aclassMagicTower_html_a6958946ae8a4eead19a0ccfa298486d0"><div class="ttname"><a href="classMagicTower.html#a6958946ae8a4eead19a0ccfa298486d0">MagicTower::get_effect</a></div><div class="ttdeci">Effect get_effect() override</div><div class="ttdoc">Возвращает эффекты магической башни</div><div class="ttdef"><b>Definition:</b> MagicTower.h:23</div></div>
 <div class="ttc" id="aclassMagicTower_html_a570554a53f80f4a08805f37386e5aa46"><div class="ttname"><a href="classMagicTower.html#a570554a53f80f4a08805f37386e5aa46">MagicTower::type</a></div><div class="ttdeci">int type() final</div><div class="ttdoc">Возвращает тип объекта, переопределяется в наследниках</div><div class="ttdef"><b>Definition:</b> MagicTower.h:19</div></div>
-<div class="ttc" id="aclassTower_html"><div class="ttname"><a href="classTower.html">Tower</a></div><div class="ttdef"><b>Definition:</b> Tower.h:13</div></div>
-<div class="ttc" id="astructSpecification_html"><div class="ttname"><a href="structSpecification.html">Specification</a></div><div class="ttdef"><b>Definition:</b> Tower.h:6</div></div>
-<div class="ttc" id="aclassMagicTower_html"><div class="ttname"><a href="classMagicTower.html">MagicTower</a></div><div class="ttdef"><b>Definition:</b> MagicTower.h:7</div></div>
+<div class="ttc" id="aclassMagicTower_html_afdd773f04417789ea163bf0dbdad6b53"><div class="ttname"><a href="classMagicTower.html#afdd773f04417789ea163bf0dbdad6b53">MagicTower::get_specification</a></div><div class="ttdeci">Specification get_specification() final</div><div class="ttdoc">Возвращает параметры магической башни</div><div class="ttdef"><b>Definition:</b> MagicTower.h:21</div></div>
+<div class="ttc" id="aclassMagicTower_html_a1a3bfb6f65dce1328d8517fdf26eefba"><div class="ttname"><a href="classMagicTower.html#a1a3bfb6f65dce1328d8517fdf26eefba">MagicTower::set_Effect</a></div><div class="ttdeci">void set_Effect(Effect tmp)</div><div class="ttdoc">Устанавливает эффекты магической башни</div><div class="ttdef"><b>Definition:</b> MagicTower.h:25</div></div>
+<div class="ttc" id="aclassTower_html"><div class="ttname"><a href="classTower.html">Tower</a></div><div class="ttdoc">Класс, описывающий башню</div><div class="ttdef"><b>Definition:</b> Tower.h:15</div></div>
+<div class="ttc" id="astructSpecification_html"><div class="ttname"><a href="structSpecification.html">Specification</a></div><div class="ttdoc">Структура, описывающая параметры башни: стоимость постройки, радиус действия, наносимый врагу урон,...</div><div class="ttdef"><b>Definition:</b> Tower.h:7</div></div>
+<div class="ttc" id="aclassMagicTower_html"><div class="ttname"><a href="classMagicTower.html">MagicTower</a></div><div class="ttdoc">Класс, описывающий магическую башню</div><div class="ttdef"><b>Definition:</b> MagicTower.h:7</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой &#160;<a href="http://www.doxygen.org/index.html">

@@ -68,13 +68,18 @@ $(function() {
 <div class="title">Класс Forest</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Класс, описывающий лес  
+ <a href="classForest.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Forest_8h_source.html">Forest.h</a>&gt;</code></p>
 <div class="dynheader">
 Граф наследования:Forest:</div>
 <div class="dyncontent">
 <div class="center"><img src="classForest__inherit__graph.png" border="0" usemap="#Forest_inherit__map" alt="Inheritance graph"/></div>
 <map name="Forest_inherit__map" id="Forest_inherit__map">
-<area shape="rect" title=" " alt="" coords="5,80,68,107"/>
-<area shape="rect" href="classField.html" title=" " alt="" coords="10,5,63,32"/>
+<area shape="rect" title="Класс, описывающий лес" alt="" coords="5,80,68,107"/>
+<area shape="rect" href="classField.html" title="Класс, описывающий ячейку игрового поля" alt="" coords="10,5,63,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
 <div class="dynheader">
@@ -82,24 +87,30 @@ $(function() {
 <div class="dyncontent">
 <div class="center"><img src="classForest__coll__graph.png" border="0" usemap="#Forest_coll__map" alt="Collaboration graph"/></div>
 <map name="Forest_coll__map" id="Forest_coll__map">
-<area shape="rect" title=" " alt="" coords="5,80,68,107"/>
-<area shape="rect" href="classField.html" title=" " alt="" coords="10,5,63,32"/>
+<area shape="rect" title="Класс, описывающий лес" alt="" coords="5,80,68,107"/>
+<area shape="rect" href="classField.html" title="Класс, описывающий ячейку игрового поля" alt="" coords="10,5,63,32"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">см. легенду</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Открытые члены</h2></td></tr>
 <tr class="memitem:a7c70accec9f2077000068a655ec97ef3"><td class="memItemLeft" align="right" valign="top"><a id="a7c70accec9f2077000068a655ec97ef3"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () override</td></tr>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classForest.html#a7c70accec9f2077000068a655ec97ef3">type</a> () override</td></tr>
+<tr class="memdesc:a7c70accec9f2077000068a655ec97ef3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает тип ячейки = 3. <br /></td></tr>
 <tr class="separator:a7c70accec9f2077000068a655ec97ef3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8380932a6977a0de2414313cccfe8db"><td class="memItemLeft" align="right" valign="top"><a id="ac8380932a6977a0de2414313cccfe8db"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>can_build_tower</b> () override</td></tr>
-<tr class="separator:ac8380932a6977a0de2414313cccfe8db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bf633b91c710765ef4108a4435d71d5"><td class="memItemLeft" align="right" valign="top"><a id="a3bf633b91c710765ef4108a4435d71d5"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>can_go</b> () override</td></tr>
-<tr class="separator:a3bf633b91c710765ef4108a4435d71d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_classField"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classField')"><img src="closed.png" alt="-"/>&#160;Открытые члены унаследованные от <a class="el" href="classField.html">Field</a></td></tr>
+<tr class="memitem:a1bc48619c4ca943158d1b9683354f371 inherit pub_methods_classField"><td class="memItemLeft" align="right" valign="top"><a id="a1bc48619c4ca943158d1b9683354f371"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a1bc48619c4ca943158d1b9683354f371">can_build_tower</a> ()</td></tr>
+<tr class="memdesc:a1bc48619c4ca943158d1b9683354f371 inherit pub_methods_classField"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает 1, если башня может быть построена (стоит на поле), 0 - нельзя строить <br /></td></tr>
+<tr class="separator:a1bc48619c4ca943158d1b9683354f371 inherit pub_methods_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a952a68e1fb66151dadc9d0fb53d49283 inherit pub_methods_classField"><td class="memItemLeft" align="right" valign="top"><a id="a952a68e1fb66151dadc9d0fb53d49283"></a>
+virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classField.html#a952a68e1fb66151dadc9d0fb53d49283">can_go</a> ()</td></tr>
+<tr class="memdesc:a952a68e1fb66151dadc9d0fb53d49283 inherit pub_methods_classField"><td class="mdescLeft">&#160;</td><td class="mdescRight">Возвращает 1, если можно ходить, 0 - нельзя ходить. Для врагов. <br /></td></tr>
+<tr class="separator:a952a68e1fb66151dadc9d0fb53d49283 inherit pub_methods_classField"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс, описывающий лес </p>
+</div><hr/>Объявления и описания членов класса находятся в файле:<ul>
 <li>fields/<a class="el" href="Forest_8h_source.html">Forest.h</a></li>
 </ul>
 </div><!-- contents -->

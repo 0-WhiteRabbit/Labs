@@ -74,22 +74,21 @@ $(function() {
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Field.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classLand.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classLand.html">Land</a>: <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code" href="classField.html">Field</a> {</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keywordtype">int</span> type() <span class="keyword">final</span> {<span class="keywordflow">return</span> 2;}</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keywordtype">int</span> can_build_tower()<span class="keyword"> override </span>{<span class="keywordflow">return</span> 1;}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordtype">int</span> can_go()<span class="keyword"> override </span>{<span class="keywordflow">return</span> 0;}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    ~<a class="code" href="classLand.html">Land</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classLand.html#a879300d0ee4ae380971c5905a5aa1496">   11</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLand.html#a879300d0ee4ae380971c5905a5aa1496">type</a>() final {<span class="keywordflow">return</span> 2;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classLand.html#a317c6d41f05940fcae2df60c09281d9c">   13</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classLand.html#a317c6d41f05940fcae2df60c09281d9c">can_build_tower</a>()<span class="keyword"> override </span>{<span class="keywordflow">return</span> 1;}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif //LAB_4_LAND_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassLand_html"><div class="ttname"><a href="classLand.html">Land</a></div><div class="ttdef"><b>Definition:</b> Land.h:7</div></div>
-<div class="ttc" id="aclassField_html"><div class="ttname"><a href="classField.html">Field</a></div><div class="ttdef"><b>Definition:</b> Field.h:5</div></div>
+<div class="ttc" id="aclassLand_html_a317c6d41f05940fcae2df60c09281d9c"><div class="ttname"><a href="classLand.html#a317c6d41f05940fcae2df60c09281d9c">Land::can_build_tower</a></div><div class="ttdeci">int can_build_tower() override</div><div class="ttdoc">Сообщает, что можно строить башню в данной клетке</div><div class="ttdef"><b>Definition:</b> Land.h:13</div></div>
+<div class="ttc" id="aclassLand_html_a879300d0ee4ae380971c5905a5aa1496"><div class="ttname"><a href="classLand.html#a879300d0ee4ae380971c5905a5aa1496">Land::type</a></div><div class="ttdeci">int type() final</div><div class="ttdoc">Возвращает тип ячейки = 2.</div><div class="ttdef"><b>Definition:</b> Land.h:11</div></div>
+<div class="ttc" id="aclassLand_html"><div class="ttname"><a href="classLand.html">Land</a></div><div class="ttdoc">Класс, описывающий поле</div><div class="ttdef"><b>Definition:</b> Land.h:7</div></div>
+<div class="ttc" id="aclassField_html"><div class="ttname"><a href="classField.html">Field</a></div><div class="ttdoc">Класс, описывающий ячейку игрового поля</div><div class="ttdef"><b>Definition:</b> Field.h:5</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой &#160;<a href="http://www.doxygen.org/index.html">

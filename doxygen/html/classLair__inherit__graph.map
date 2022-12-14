@@ -1,4 +1,4 @@
 <map id="Lair" name="Lair">
 <area shape="rect" id="node1" title=" " alt="" coords="14,80,61,107"/>
-<area shape="rect" id="node2" href="$classObject.html" title="Класс радитель для всех объектов" alt="" coords="5,5,69,32"/>
+<area shape="rect" id="node2" href="$classObject.html" title="Класс родитель для всех объектов" alt="" coords="5,5,69,32"/>
 </map>

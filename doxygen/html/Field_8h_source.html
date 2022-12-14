@@ -72,20 +72,22 @@ $(function() {
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LAB_4_FIELD_H</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LAB_4_FIELD_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
 <div class="line"><a name="l00005"></a><span class="lineno"><a class="line" href="classField.html">    5</a></span>&#160;<span class="keyword">class </span><a class="code" href="classField.html">Field</a> {</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> type()=0;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> can_build_tower() {<span class="keywordflow">return</span> 0;}</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> can_go() {<span class="keywordflow">return</span> 0;}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classField.html">Field</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;};</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classField.html#a9443bece29a129e4fd31d33e7c88c7f1">type</a>()=0;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classField.html#a1bc48619c4ca943158d1b9683354f371">   10</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classField.html#a1bc48619c4ca943158d1b9683354f371">can_build_tower</a>() {<span class="keywordflow">return</span> 0;}</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classField.html#a952a68e1fb66151dadc9d0fb53d49283">   12</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="classField.html#a952a68e1fb66151dadc9d0fb53d49283">can_go</a>() {<span class="keywordflow">return</span> 0;}</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classField.html">Field</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif //LAB_4_FIELD_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif //LAB_4_FIELD_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassField_html"><div class="ttname"><a href="classField.html">Field</a></div><div class="ttdef"><b>Definition:</b> Field.h:5</div></div>
+<div class="ttc" id="aclassField_html_a9443bece29a129e4fd31d33e7c88c7f1"><div class="ttname"><a href="classField.html#a9443bece29a129e4fd31d33e7c88c7f1">Field::type</a></div><div class="ttdeci">virtual int type()=0</div><div class="ttdoc">Возвращает тип ячейки</div></div>
+<div class="ttc" id="aclassField_html_a952a68e1fb66151dadc9d0fb53d49283"><div class="ttname"><a href="classField.html#a952a68e1fb66151dadc9d0fb53d49283">Field::can_go</a></div><div class="ttdeci">virtual int can_go()</div><div class="ttdoc">Возвращает 1, если можно ходить, 0 - нельзя ходить. Для врагов.</div><div class="ttdef"><b>Definition:</b> Field.h:12</div></div>
+<div class="ttc" id="aclassField_html_a1bc48619c4ca943158d1b9683354f371"><div class="ttname"><a href="classField.html#a1bc48619c4ca943158d1b9683354f371">Field::can_build_tower</a></div><div class="ttdeci">virtual int can_build_tower()</div><div class="ttdoc">Возвращает 1, если башня может быть построена (стоит на поле), 0 - нельзя строить</div><div class="ttdef"><b>Definition:</b> Field.h:10</div></div>
+<div class="ttc" id="aclassField_html"><div class="ttname"><a href="classField.html">Field</a></div><div class="ttdoc">Класс, описывающий ячейку игрового поля</div><div class="ttdef"><b>Definition:</b> Field.h:5</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой &#160;<a href="http://www.doxygen.org/index.html">

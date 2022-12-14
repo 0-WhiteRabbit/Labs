@@ -9,7 +9,7 @@
 
 class Lair: public Object {
 private:
-    Vector<Object*> queue; ///< Очередь на появления из врагов
+    Vector<Object*> queue; ///< Очередь на появление из врагов
 
 public:
     Lair() = default;

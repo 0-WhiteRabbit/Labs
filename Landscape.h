@@ -15,7 +15,7 @@ class Object;
 class Landscape {
 public:
     Vector<Object*> objects; ///< Вектор с объектами на поле
-    Vector<Vector<Field*>> fields; ///< Двухмерный вектор размером n на m с типом полей
+    Vector<Vector<Field*>> fields; ///< Двумерный вектор размером n на m с типом полей
     int n, m;
     int tik=1;
     int gold=100;
@@ -23,7 +23,7 @@ public:
 
     Landscape(int init_n, int init_m);
 
-    //! Функция обновляющая все объекты на поле, если возвращает 0, то игра окончена
+    //! Функция, обновляющая все объекты на поле, если возвращает 0, то игра окончена
     int refresh();
     void build(Object* t);
     void set_field(int x, int y, Field* f);

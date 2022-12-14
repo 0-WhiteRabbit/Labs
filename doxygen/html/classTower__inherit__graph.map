@@ -1,7 +1,7 @@
 <map id="Tower" name="Tower">
-<area shape="rect" id="node1" title=" " alt="" coords="142,80,202,107"/>
-<area shape="rect" id="node3" href="$classMagicTower.html" title=" " alt="" coords="5,155,104,181"/>
+<area shape="rect" id="node1" title="Класс, описывающий башню" alt="" coords="142,80,202,107"/>
+<area shape="rect" id="node3" href="$classMagicTower.html" title="Класс, описывающий магическую башню" alt="" coords="5,155,104,181"/>
 <area shape="rect" id="node4" href="$classMagicTrap.html" title=" " alt="" coords="128,155,216,181"/>
 <area shape="rect" id="node5" href="$classSimpleTower.html" title=" " alt="" coords="241,155,346,181"/>
-<area shape="rect" id="node2" href="$classObject.html" title="Класс радитель для всех объектов" alt="" coords="140,5,204,32"/>
+<area shape="rect" id="node2" href="$classObject.html" title="Класс родитель для всех объектов" alt="" coords="140,5,204,32"/>
 </map>

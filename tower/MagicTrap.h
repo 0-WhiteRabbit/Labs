@@ -19,7 +19,7 @@ public:
     int type() final {return 12;}
     Specification get_specification() final { return specification;}
     Effect get_effect() override {return effect;}
-    void set_Effect(Effect tmp) override {effect = effect + tmp;}
+    void set_Effect(Effect tmp) {effect = effect + tmp;}
 
 };
 

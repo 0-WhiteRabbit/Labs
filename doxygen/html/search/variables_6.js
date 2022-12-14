@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['slowdown_80',['slowdown',['../structEffect.html#a4ab548992c742a977d58f6bbd6fe1a87',1,'Effect']]]
+  ['poisoning_96',['poisoning',['../structEffect.html#a6b2670c1c7bb2ae140178721f969167b',1,'Effect']]]
 ];

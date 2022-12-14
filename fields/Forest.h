@@ -3,15 +3,12 @@
 
 #include "Field.h"
 
-
+//! Класс, описывающий лес
 class Forest: virtual public Field {
 
 public:
+    //! Возвращает тип ячейки = 3
     int type() override {return 3;}
-    int can_build_tower() override {return 0;}
-    int can_go() override {return 0;}
-    ~Forest() = default;;
-
 };
 
 
