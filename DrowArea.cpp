@@ -217,7 +217,7 @@ void DrawArea::draw_help_message(QPainter &painter) {
                       "Select cell and press 3 for set forest.\n"
                       "Select cell and press 5 for build castle.\n"
                       "Select cell and press 6 for build lair.\n"
-                      "Press A for add enemy to selected lair.\n";
+                      "Press Enter for add enemy to selected lair.\n";
     QString phase_1 = "Space for pause.\n"
                       "Select cell and press 1 for set simple tower.\n"
                       "Select cell and press 2 for set magic tower.\n"

@@ -1,0 +1,4 @@
+<map id="Castle" name="Castle">
+<area shape="rect" id="node1" title="Класс с реализации логики замка" alt="" coords="6,80,69,107"/>
+<area shape="rect" id="node2" href="$classObject.html" title="Класс радитель для всех объектов" alt="" coords="5,5,69,32"/>
+</map>

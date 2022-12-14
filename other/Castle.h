@@ -3,15 +3,14 @@
 
 #include "Object.h"
 
-
+//! Класс с реализации логики замка
 class Castle: public Object {
-
 public:
-    int max_stability = 0;
-    int current_stability = 0;
-    int gold=0;
+    int max_stability = 0; ///< Максимальное здоровье
+    int current_stability = 0; ///< Текущее здоровье
 
-    Castle(int new_max_stability): max_stability(new_max_stability), current_stability(new_max_stability) {}
+    //! Конструктор по умолчанию
+    explicit Castle(int new_max_stability): max_stability(new_max_stability), current_stability(new_max_stability) {}
 
     int bit(int hit) override;
     int type() final {return 1;}

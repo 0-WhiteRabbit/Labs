@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tower defence: Исходный файл other/Enemy.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Tower defence
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_c1d4644b987a6b7985830a0b6a8b3530.html">other</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Enemy.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LAB_4_ENEMY_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LAB_4_ENEMY_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Object.h&quot;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="classEnemy.html">    8</a></span>&#160;<span class="keyword">class </span><a class="code" href="classEnemy.html">Enemy</a>: <span class="keyword">virtual</span> <span class="keyword">public</span> <a class="code" href="classObject.html">Object</a> {</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="structEffect.html">Effect</a> effects = {1, 0, 1}; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">int</span> path_dfs(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> <a class="code" href="classObject.html#a9ed372592e77352c832d721ad88b9aec">y</a>, <span class="keyword">const</span> <a class="code" href="classObject.html">Object</a>&amp; castle, <span class="keywordtype">int</span>** have_been, <span class="keywordtype">int</span> limit, <a class="code" href="classLandscape.html">Landscape</a> &amp;tmp);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">int</span> hill=0;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classEnemy.html#a29680b73bd9772f66095c41d6c8bf860">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#a29680b73bd9772f66095c41d6c8bf860">time</a>=0; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classEnemy.html#a60960cd3657741ef085b56e25efe61e1">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#a60960cd3657741ef085b56e25efe61e1">gold</a>=0; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classEnemy.html#a46cb4d9014636d89fcc1e5e589a213eb">   21</a></span>&#160;    <a class="code" href="classEnemy.html#a46cb4d9014636d89fcc1e5e589a213eb">Enemy</a>(<span class="keywordtype">int</span> init_gold, <span class="keywordtype">int</span> init_time, <span class="keywordtype">int</span> init_hill): <a class="code" href="classEnemy.html#a60960cd3657741ef085b56e25efe61e1">gold</a>(init_gold), <a class="code" href="classEnemy.html#a29680b73bd9772f66095c41d6c8bf860">time</a>(init_time), hill(init_hill) {}</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> *<a class="code" href="classEnemy.html#a02ea0e4432982012b49e9210fdbc5b1c">get_next_pos</a>(<a class="code" href="classLandscape.html">Landscape</a> &amp;tmp);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classEnemy.html#a847f5cc5aab88e91e71c44578a85454a">   26</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#a847f5cc5aab88e91e71c44578a85454a">type</a>() final {<span class="keywordflow">return</span> 2;}</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#a25262dc33a2a39857dcf9b3ad4ee7dfc">refresh</a>(<a class="code" href="classLandscape.html">Landscape</a> &amp;tmp) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#ac0d44e8b53e7167364f2282c4e5e39e1">bit</a>(<span class="keywordtype">int</span> bit_hit) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#aae3b93dc488a498ff8911f2fb5199872">get_speed</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classEnemy.html#a39ac2c2fe3c4a6f45affadb0aae24f33">add_effects</a>(<a class="code" href="structEffect.html">Effect</a> _effects) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classEnemy.html#a1132a36a5bf09a3f91842f5c5bd2e749">   32</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#a1132a36a5bf09a3f91842f5c5bd2e749">get_hill</a>()<span class="keyword"> override </span>{<span class="keywordflow">return</span> hill;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#afb955bd62a2720b9803928a074154653">get_time</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classEnemy.html#a1c7525d302cc233e766a4727d8913872">   34</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classEnemy.html#a1c7525d302cc233e766a4727d8913872">get_gold</a>()<span class="keyword"> override </span>{<span class="keywordflow">return</span> <a class="code" href="classEnemy.html#a60960cd3657741ef085b56e25efe61e1">gold</a>;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif //LAB_4_ENEMY_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astructEffect_html"><div class="ttname"><a href="structEffect.html">Effect</a></div><div class="ttdoc">Структура для описания эффектов</div><div class="ttdef"><b>Definition:</b> Object.h:14</div></div>
+<div class="ttc" id="aclassEnemy_html_a60960cd3657741ef085b56e25efe61e1"><div class="ttname"><a href="classEnemy.html#a60960cd3657741ef085b56e25efe61e1">Enemy::gold</a></div><div class="ttdeci">int gold</div><div class="ttdoc">золото, которое он несёт</div><div class="ttdef"><b>Definition:</b> Enemy.h:18</div></div>
+<div class="ttc" id="aclassEnemy_html_a39ac2c2fe3c4a6f45affadb0aae24f33"><div class="ttname"><a href="classEnemy.html#a39ac2c2fe3c4a6f45affadb0aae24f33">Enemy::add_effects</a></div><div class="ttdeci">void add_effects(Effect _effects) override</div><div class="ttdoc">Функция для добавления эффектов врагу, переопределяется в Enemy.</div></div>
+<div class="ttc" id="aclassEnemy_html_afb955bd62a2720b9803928a074154653"><div class="ttname"><a href="classEnemy.html#afb955bd62a2720b9803928a074154653">Enemy::get_time</a></div><div class="ttdeci">int get_time() override</div><div class="ttdoc">Получение времени, когда следует выпускать врага, переопределяется в Enemy.</div></div>
+<div class="ttc" id="aclassEnemy_html_a29680b73bd9772f66095c41d6c8bf860"><div class="ttname"><a href="classEnemy.html#a29680b73bd9772f66095c41d6c8bf860">Enemy::time</a></div><div class="ttdeci">int time</div><div class="ttdoc">Время, когда появляется враг</div><div class="ttdef"><b>Definition:</b> Enemy.h:17</div></div>
+<div class="ttc" id="aclassEnemy_html_aae3b93dc488a498ff8911f2fb5199872"><div class="ttname"><a href="classEnemy.html#aae3b93dc488a498ff8911f2fb5199872">Enemy::get_speed</a></div><div class="ttdeci">int get_speed() override</div><div class="ttdoc">Функция для получения скорости врага, переопределяется в Enemy.</div></div>
+<div class="ttc" id="aclassEnemy_html_a46cb4d9014636d89fcc1e5e589a213eb"><div class="ttname"><a href="classEnemy.html#a46cb4d9014636d89fcc1e5e589a213eb">Enemy::Enemy</a></div><div class="ttdeci">Enemy(int init_gold, int init_time, int init_hill)</div><div class="ttdoc">Конструктор, который следует использовать по умолчанию</div><div class="ttdef"><b>Definition:</b> Enemy.h:21</div></div>
+<div class="ttc" id="aclassObject_html"><div class="ttname"><a href="classObject.html">Object</a></div><div class="ttdoc">Класс радитель для всех объектов</div><div class="ttdef"><b>Definition:</b> Object.h:29</div></div>
+<div class="ttc" id="aclassEnemy_html_a25262dc33a2a39857dcf9b3ad4ee7dfc"><div class="ttname"><a href="classEnemy.html#a25262dc33a2a39857dcf9b3ad4ee7dfc">Enemy::refresh</a></div><div class="ttdeci">int refresh(Landscape &amp;tmp) override</div><div class="ttdoc">Функция для обновления состояния объекта, переопределяется в наследниках</div></div>
+<div class="ttc" id="aclassEnemy_html"><div class="ttname"><a href="classEnemy.html">Enemy</a></div><div class="ttdoc">Класс с реализации логики врага</div><div class="ttdef"><b>Definition:</b> Enemy.h:8</div></div>
+<div class="ttc" id="aclassEnemy_html_ac0d44e8b53e7167364f2282c4e5e39e1"><div class="ttname"><a href="classEnemy.html#ac0d44e8b53e7167364f2282c4e5e39e1">Enemy::bit</a></div><div class="ttdeci">int bit(int bit_hit) override</div><div class="ttdoc">Функция для получения урона, переопределяется в Enemy, Castle.</div></div>
+<div class="ttc" id="aclassLandscape_html"><div class="ttname"><a href="classLandscape.html">Landscape</a></div><div class="ttdoc">Класс с реализации игрового поля</div><div class="ttdef"><b>Definition:</b> Landscape.h:15</div></div>
+<div class="ttc" id="aclassEnemy_html_a1c7525d302cc233e766a4727d8913872"><div class="ttname"><a href="classEnemy.html#a1c7525d302cc233e766a4727d8913872">Enemy::get_gold</a></div><div class="ttdeci">int get_gold() override</div><div class="ttdoc">Получение золота, которое несёт враг, переопределяется в Enemy.</div><div class="ttdef"><b>Definition:</b> Enemy.h:34</div></div>
+<div class="ttc" id="aclassObject_html_a9ed372592e77352c832d721ad88b9aec"><div class="ttname"><a href="classObject.html#a9ed372592e77352c832d721ad88b9aec">Object::y</a></div><div class="ttdeci">int y</div><div class="ttdoc">Координаты объекта</div><div class="ttdef"><b>Definition:</b> Object.h:31</div></div>
+<div class="ttc" id="aclassEnemy_html_a02ea0e4432982012b49e9210fdbc5b1c"><div class="ttname"><a href="classEnemy.html#a02ea0e4432982012b49e9210fdbc5b1c">Enemy::get_next_pos</a></div><div class="ttdeci">const int * get_next_pos(Landscape &amp;tmp)</div><div class="ttdoc">Получение следующих координат врага</div></div>
+<div class="ttc" id="aclassEnemy_html_a1132a36a5bf09a3f91842f5c5bd2e749"><div class="ttname"><a href="classEnemy.html#a1132a36a5bf09a3f91842f5c5bd2e749">Enemy::get_hill</a></div><div class="ttdeci">int get_hill() override</div><div class="ttdoc">Получение здоровья врага, переопределяется в Enemy.</div><div class="ttdef"><b>Definition:</b> Enemy.h:32</div></div>
+<div class="ttc" id="aclassEnemy_html_a847f5cc5aab88e91e71c44578a85454a"><div class="ttname"><a href="classEnemy.html#a847f5cc5aab88e91e71c44578a85454a">Enemy::type</a></div><div class="ttdeci">int type() final</div><div class="ttdoc">Возвращает тип объекта, переопределяется в наследниках</div><div class="ttdef"><b>Definition:</b> Enemy.h:26</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

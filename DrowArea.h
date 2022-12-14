@@ -9,8 +9,7 @@
 #include <QDebug>
 #include "Landscape.h"
 
-class DrawArea : public QWidget
-{
+class DrawArea : public QWidget {
 Q_OBJECT
 
 public:

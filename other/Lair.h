@@ -8,23 +8,24 @@
 
 
 class Lair: public Object {
-
 private:
-    Vector<Object*> queue;
+    Vector<Object*> queue; ///< Очередь на появления из врагов
 
 public:
     Lair() = default;
 
     ~Lair() {
-        for (int i=0; i<queue.size(); ++i) {
-            delete queue[i];
-            queue[i] = NULL;
+        for (auto & i : queue) {
+            delete i;
+            i = nullptr;
         }
 
         queue.clear();
     }
 
     int type() override {return 3;}
+
+    //! Добавление врага в очередь
     void add_enemy(Object *t) override;
     int refresh(Landscape &tmp) override;
 };

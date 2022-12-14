@@ -126,7 +126,3 @@ const int *Enemy::get_next_pos(Landscape &tmp) {
 int Enemy::get_time() {
     return time;
 }
-
-void Enemy::set_time(int t) {
-    time = t;
-}
