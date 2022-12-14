@@ -14,12 +14,11 @@ class Tower: virtual public Object {
 
 private:
     Specification specification = {10, 1, 1, 1};
+    Effect effect = {0,0,0};
 
 public:
     int strategy=0;
     int level=1;
-    Effect effect = {0,0,0};
-    int x=-1, y=-1;
 
     void level_up() {
         specification.cost += 5;
@@ -27,12 +26,11 @@ public:
     }
 
     virtual Specification get_specification() { return specification;}
-
     int type() override {return 10;}
-
     int refresh(Landscape &tmp) final;
-
     int strategy_comparator(Object& a1, Object& a2, int tower_x, int tower_y) const;
+    virtual Effect get_effect() {return effect;}
+    virtual void set_Effect(Effect tmp) {effect = effect + tmp;}
 };
 
 

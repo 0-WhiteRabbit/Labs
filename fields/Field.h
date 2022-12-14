@@ -4,9 +4,10 @@
 
 class Field {
 public:
-    virtual int type() {return 0;}
+    virtual int type()=0;
     virtual int can_build_tower() {return 0;}
     virtual int can_go() {return 0;}
+    virtual ~Field() = default;
 
 };
 

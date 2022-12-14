@@ -11,7 +11,6 @@ private:
 public:
     int type() final {return 11;}
     Specification get_specification() final { return specification;}
-
 };
 
 

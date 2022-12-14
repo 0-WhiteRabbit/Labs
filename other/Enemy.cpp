@@ -12,9 +12,9 @@ int Enemy::refresh(Landscape &tmp) {
     }
 
     Object *tmp1;
-    for (int j=0; j < tmp.objects.size(); ++j) {
-        if (tmp.objects[j]->type() == 1) {
-            tmp1 = tmp.objects[j];
+    for (auto & object : tmp.objects) {
+        if (object->type() == 1) {
+            tmp1 = object;
         }
     }
 
@@ -22,17 +22,18 @@ int Enemy::refresh(Landscape &tmp) {
         if (tmp1->bit(hill) <= 0) {
             return 0;
         }
+        return 2;
     }
     return 1;
 }
 
 int Enemy::bit(int bit_hit) {
-    hill -= bit_hit;
+    hill -= bit_hit*effects.weakening;
     return hill;
 }
 
 int Enemy::get_speed() {
-    return 60 * effects.slowdown;
+    return 2*effects.slowdown;
 }
 
 void Enemy::add_effects(Effect _effects) {
@@ -54,7 +55,7 @@ int Enemy::path_dfs(int x, int y, const Object& castle, int** have_been, int lim
     if (x+1 < tmp.n && tmp.fields[x+1][y]->can_go() && !have_been[x+1][y]) {
         flag = path_dfs(x+1, y, castle, have_been, limit, tmp);
     }
-    if (y < tmp.m && tmp.fields[x][y+1]->can_go() && !have_been[x][y+1]) {
+    if (y+1 < tmp.m && tmp.fields[x][y+1]->can_go() && !have_been[x][y+1]) {
         flag = path_dfs(x, y+1, castle, have_been, limit, tmp);
     }
     if (x-1 >= 0 && tmp.fields[x-1][y]->can_go() && !have_been[x-1][y]) {
@@ -98,7 +99,7 @@ const int *Enemy::get_next_pos(Landscape &tmp) {
         pos[0] = x+1;
         pos[1] = y;
     }
-    if (y < tmp.m && tmp.fields[x][y+1]->can_go() && min_l > have_been[x][y+1]) {
+    if (y+1 < tmp.m && tmp.fields[x][y+1]->can_go() && min_l > have_been[x][y+1]) {
         min_l = have_been[x][y+1];
         pos[0] = x;
         pos[1] = y+1;
@@ -108,7 +109,7 @@ const int *Enemy::get_next_pos(Landscape &tmp) {
         pos[0] = x-1;
         pos[1] = y;
     }
-    if (y > 0 && tmp.fields[x][y-1]->can_go() && min_l > have_been[x][y-1]) {
+    if (y-1 >= 0 && tmp.fields[x][y-1]->can_go() && min_l > have_been[x][y-1]) {
         min_l = have_been[x][y-1];
         pos[0] = x;
         pos[1] = y-1;
@@ -120,4 +121,12 @@ const int *Enemy::get_next_pos(Landscape &tmp) {
     delete[] have_been;
 
     return pos;
+}
+
+int Enemy::get_time() {
+    return time;
+}
+
+void Enemy::set_time(int t) {
+    time = t;
 }

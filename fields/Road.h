@@ -5,12 +5,13 @@
 #include "Field.h"
 
 
-class Road: Field {
+class Road: virtual public Field {
 
 public:
     int type() override {return 1;}
     int can_build_tower() override {return 0;}
     int can_go() override {return 1;}
+    ~Road() = default;
 };
 
 

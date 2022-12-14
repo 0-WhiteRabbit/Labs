@@ -41,7 +41,7 @@ protected:
         const Land *tmp2_3 = new Land();
         landscape.set_field(2, 3, (Field *) tmp2_3);
         const Land *tmp3_3 = new Land();
-        landscape.set_field(3, 3, (Field *) tmp3_3);
+        landscape.set_field(1, 1, (Field *) tmp3_3);
 
         castle->x = 3;
         castle->y = 2;

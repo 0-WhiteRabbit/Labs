@@ -16,6 +16,7 @@ public:
     Vector<Vector<Field*>> fields;
     int n, m;
     int tik=1;
+    int gold=100;
     ~Landscape();
 
     Landscape(int init_n, int init_m);

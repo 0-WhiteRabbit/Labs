@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <iostream>
 #include "Landscape.h"
 
 Landscape::~Landscape() {
@@ -20,12 +21,31 @@ int Landscape::refresh() {
         flag = objects[i]->refresh(*this);
         if (flag == 0) {
             return 0;
+        } else if (flag == 2) {
+            objects.erase(objects.begin() + i);
         }
     }
     return 1;
 }
 
 void Landscape::build(Object* t) {
+    if (t->x > n || t->y > m || t->x < 0 || t->y < 0)
+        throw std::invalid_argument("Wrong x, y!");
+    if ((t->type() == 1 || t->type() == 3) && fields[t->x][t->y]->type() != 1)
+        throw std::invalid_argument("You can build castle or lair only on road!");
+    if (t->type() > 9 && fields[t->x][t->y]->type() != 2)
+        throw std::invalid_argument("You can build tower only on land!");
+    if (t->type() == 2 && fields[t->x][t->y]->type() != 1)
+        throw std::invalid_argument("You can build enemy only on road!");
+
+    if (t->type() == 1 || t->type() == 3 || t->type() > 9) {
+        for (auto & object : objects) {
+            if (object->x == t->x && object->y == t->y) {
+                throw std::invalid_argument("This space not empty!");
+            }
+        }
+    }
+
     objects.push_back(t);
 }
 
@@ -39,8 +59,8 @@ void Landscape::set_field(int x, int y, Field* tmp) {
 
 int Landscape::check_correct() {
     int num_of_castle=0;
-    for (int i=0; i < objects.size(); ++i) {
-        if (objects[i]->type() == 1) {
+    for (auto & object : objects) {
+        if (object->type() == 1) {
             ++num_of_castle;
         }
     }

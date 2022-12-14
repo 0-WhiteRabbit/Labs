@@ -3,7 +3,6 @@
 
 
 #include <cstdint>
-#include <iterator>
 
 template <class T>
 class Vector {
@@ -12,6 +11,8 @@ private:
     int n=0, res_n=0;
 
 public:
+    class iterator;
+
     void push_back(T arg) {
         ++n;
         if (res_n < n) {
@@ -33,10 +34,10 @@ public:
         res_n = _n;
     }
 
-    void erase(uintptr_t k) {
-        k = k - begin();
-        for(uintptr_t i=k; i<(n-1); i++) {
-            data[i] = data[i+1];
+    void erase(Vector<T>::iterator k) {
+        while (k != end()) {
+            *k = *(k+1);
+            ++k;
         }
         --n;
     }
@@ -45,8 +46,8 @@ public:
         return n;
     }
 
-    int begin() {
-        return 0;
+    iterator begin() {
+        return iterator(data);
     }
 
     void clear() {
@@ -56,8 +57,8 @@ public:
         res_n = 0;
     }
 
-    int end() {
-        return n;
+    iterator end() {
+        return iterator(&data[n]);
     }
 
     T& operator[](const int index) { return data[index]; };
@@ -66,5 +67,38 @@ public:
         delete[] data;
     }
 };
+
+template<class T>
+class Vector<T>::iterator {
+public:
+    explicit iterator(T* p) : _curr(p) {}
+
+    iterator& operator++() {
+        _curr++;
+        return *this;
+    }
+
+    friend iterator operator+(const iterator b, const int t) {
+        return iterator(b._curr + t);
+    }
+
+    T& operator*() {
+        return *_curr;
+    }
+
+    bool operator==(const iterator& b) const {
+        return *_curr == *b._curr;
+    }
+
+    bool operator!=(const iterator& b) const {
+        if (_curr == nullptr)
+            return false;
+        return *_curr != *b._curr;
+    }
+
+private:
+    T* _curr;
+};
+
 
 #endif //LAB_4_VECTOR_H

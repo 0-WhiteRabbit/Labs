@@ -26,7 +26,7 @@ TEST(set_wrong_fields, test_Field) {
 
 TEST(check_correct_field, test_Field) {
     Landscape t(5, 5);
-    Field *tmp1 = new Land();
+    Field *tmp1 = new Road();
     t.set_field(0, 0, (Field *) tmp1);
     auto castle = Castle(10);
     castle.x = 0;
@@ -49,7 +49,7 @@ TEST(kill_enemy, test_Enemy) {
 TEST(add_affect, test_Enemy) {
     Enemy tmp = Enemy(10, 0, 11);
     tmp.add_effects({10,0,0});
-    ASSERT_EQ(tmp.get_speed(), 660);
+    ASSERT_EQ(tmp.get_speed(), 22);
 }
 
 //test refresh
@@ -83,13 +83,14 @@ TEST_F(CastleTest, test_find_path) {
 
 TEST_F(CastleTest, test_shoot) {
     auto *t = new Enemy(10, 10, 20);
-    t->x = 2;
-    t->y = 2;
+    t->x = 0;
+    t->y = 1;
     auto *tower = new SimpleTower();
-    tower->x = 3;
-    tower->y = 2;
-    landscape.build(t);
+    tower->x = 1;
+    tower->y = 1;
     landscape.build(tower);
+    landscape.build(t);
+    landscape.refresh();
     landscape.refresh();
     int k = t->get_hill();
     delete t;

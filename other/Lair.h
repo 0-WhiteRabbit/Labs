@@ -1,22 +1,31 @@
 #ifndef LAB_4_LAIR_H
 #define LAB_4_LAIR_H
 
+
 #include <vector>
 #include "../Landscape.h"
-#include "Enemy.h"
 #include "Object.h"
 
 
-class Lair: virtual public Object {
+class Lair: public Object {
 
 private:
-    Vector<Enemy*> queue;
+    Vector<Object*> queue;
 
 public:
-    int can_build_tower=1;
+    Lair() = default;
 
-    virtual int type() {return 3;}
-    void add_enemy(Enemy *t);
+    ~Lair() {
+        for (int i=0; i<queue.size(); ++i) {
+            delete queue[i];
+            queue[i] = NULL;
+        }
+
+        queue.clear();
+    }
+
+    int type() override {return 3;}
+    void add_enemy(Object *t) override;
     int refresh(Landscape &tmp) override;
 };
 

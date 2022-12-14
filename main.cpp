@@ -1,13 +1,19 @@
-#include <iostream>
-#include "vector/Vector.h"
+#include <QApplication>
+#include <QInputDialog>
 
-int main() {
-    Vector<int> t;
+#include "mainwindow.h"
 
-    t.push_back(122);
-    t.push_back(23);
-    t.erase(0);
+int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
 
-    std::cout << t.size() << " " << t[0] << std::endl;
-    return 0;
+    bool ok1=true, ok2=true;
+    int n = 4;/*QInputDialog::getInt(nullptr, "Input", "N:", 5, 3, 20, 1, &ok1);*/
+    int m = 5;/*QInputDialog::getInt(nullptr, "Input", "M:", 5, 3, 20, 1, &ok2);*/
+
+    if (!(ok1 && ok2)) {
+        return 0;
+    }
+    MainWindow window(n, m);
+    window.show();
+    return app.exec();
 }
