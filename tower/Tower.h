@@ -31,7 +31,7 @@ public:
     //! Возвращает параметры башни
     virtual Specification get_specification() { return specification;}
     int type() override {return 10;}
-    int refresh(Landscape &tmp) final;
+    void refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) final;
     //! Выбирает стратегию башни
     int strategy_comparator(Object& a1, Object& a2, int tower_x, int tower_y) const;
     //! Возвращает эффекты башни

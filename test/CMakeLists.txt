@@ -5,6 +5,7 @@ add_subdirectory(googletest)
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 set(CMAKE_CXX_STANDARD 17)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 add_executable(tests test_landscape.cpp ../Landscape.cpp ../Landscape.h ../fields/Field.h ../other/Enemy.h ../other/Enemy.cpp  ../tower/Tower.h
         ../tower/SimpleTower.cpp ../tower/SimpleTower.h ../tower/MagicTower.cpp ../tower/MagicTower.h ../tower/MagicTrap.cpp ../tower/MagicTrap.h

@@ -57,18 +57,6 @@ TEST_F(CastleTest, test_refrash) {
     ASSERT_EQ(1, landscape.refresh());
 }
 
-//test lair
-TEST_F(CastleTest, test_spawn) {
-    auto *t = new Enemy(10, 10, 10);
-    lair->add_enemy(t);
-    for (int i=0; i<10; ++i) {
-        landscape.refresh();
-    }
-    int k = landscape.objects[2]->type();
-    delete t;
-    ASSERT_EQ(2, k);
-}
-
 TEST_F(CastleTest, test_find_path) {
     auto *t = new Enemy(10, 10, 10);
     landscape.build(t);

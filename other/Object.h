@@ -4,6 +4,8 @@
 class Landscape;
 
 #include "../Landscape.h"
+#include <thread>
+#include <mutex>
 
 //! Структура для описания эффектов
 /*!
@@ -28,13 +30,13 @@ struct Effect {
  */
 class Object {
 public:
+    //! Функция для обновления состояния объекта, переопределяется в наследниках
+    virtual void refresh(Landscape &tmp, int &flag, std::mutex &mutex) {flag = 1;}
+
     int x=0, y=0; ///< Координаты объекта
 
     //! Возвращает тип объекта, переопределяется в наследниках
     virtual int type() {return 0;}
-
-    //! Функция для обновления состояния объекта, переопределяется в наследниках
-    virtual int refresh(Landscape &tmp) {return 1;}
 
     //! Функция для добавления эффектов врагу, переопределяется в Enemy
     virtual void add_effects(Effect _effects) {}

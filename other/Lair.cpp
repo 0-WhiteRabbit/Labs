@@ -12,16 +12,18 @@ void Lair::add_enemy(Object *t) {
     queue.push_back(t);
 }
 
-int Lair::refresh(Landscape &tmp) {
+void Lair::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
     int k = -1;
     for (int i=0; i < queue.size(); ++i) {
         if (queue[i]->get_time() == tmp.tik) {
+            g_mutex.lock(); // lock mutex
             tmp.build(queue[i]);
+            g_mutex.unlock();
             k = i;
             break;
         }
     }
     if (k != -1)
         queue.erase(queue.begin() + k);
-    return 1;
+    flag = 1;
 }

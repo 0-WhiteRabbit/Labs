@@ -1,6 +1,6 @@
 #include "Enemy.h"
 
-int Enemy::refresh(Landscape &tmp) {
+void Enemy::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
     if (tmp.tik % 10 == 0)
         hill -= effects.poisoning;
 
@@ -20,11 +20,13 @@ int Enemy::refresh(Landscape &tmp) {
 
     if (tmp1->x == x && tmp1->y == y) {
         if (tmp1->bit(hill) <= 0) {
-            return 0;
+            flag = 0;
+            return;
         }
-        return 2;
+        flag = 2;
+        return;
     }
-    return 1;
+    flag = 1;
 }
 
 int Enemy::bit(int bit_hit) {

@@ -1,5 +1,6 @@
 #include "Tower.h"
 #include <cmath>
+#include <iostream>
 
 int Tower::strategy_comparator(Object& a1, Object& a2, int tower_x, int tower_y) const {
     switch (strategy) {
@@ -46,9 +47,9 @@ int Tower::strategy_comparator(Object& a1, Object& a2, int tower_x, int tower_y)
     }
 }
 
-int Tower::refresh(Landscape &tmp) {
+void Tower::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
     if (tmp.tik % specification.speed != 0) {
-        return 1;
+        flag = 1;
     }
 
     int target = -1;
@@ -58,18 +59,22 @@ int Tower::refresh(Landscape &tmp) {
             int dy = abs(y - tmp.objects[j]->y);
             double dl = sqrt(dx * dx + dy * dy);
             if (dl <= specification.radius) {
+                g_mutex.lock();
                 if (target == -1 || strategy_comparator(*tmp.objects[j], *tmp.objects[target], x, y)) {
                     target = j;
                 }
+                g_mutex.unlock();
             }
         }
     }
 
+    g_mutex.lock();
     if (target != -1 && tmp.objects[target]->bit(specification.hit) <= 0) {
         tmp.gold += tmp.objects[target]->get_gold();
         tmp.objects.erase(tmp.objects.begin() + target);
     } else if (target != -1) {
         tmp.objects[target]->add_effects(get_effect());
     }
-    return 1;
+    g_mutex.unlock();
+    flag = 1;
 }
