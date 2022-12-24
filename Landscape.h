@@ -7,6 +7,7 @@ class Object;
 #include "fields/Forest.h"
 #include "other/Object.h"
 #include "vector/Vector.h"
+#include <mutex>
 
 //! Класс с реализации игрового поля
 /*!
@@ -19,6 +20,8 @@ public:
     int n, m;
     int tik=1;
     int gold=100;
+    std::mutex g_mutex;
+
     ~Landscape();
 
     Landscape(int init_n, int init_m);

@@ -47,9 +47,10 @@ int Tower::strategy_comparator(Object& a1, Object& a2, int tower_x, int tower_y)
     }
 }
 
-void Tower::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
+void Tower::refresh(Landscape &tmp, int &flag) {
     if (tmp.tik % specification.speed != 0) {
         flag = 1;
+        return;
     }
 
     int target = -1;
@@ -59,22 +60,20 @@ void Tower::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
             int dy = abs(y - tmp.objects[j]->y);
             double dl = sqrt(dx * dx + dy * dy);
             if (dl <= specification.radius) {
-                g_mutex.lock();
                 if (target == -1 || strategy_comparator(*tmp.objects[j], *tmp.objects[target], x, y)) {
                     target = j;
                 }
-                g_mutex.unlock();
             }
         }
     }
 
-    g_mutex.lock();
+    tmp.g_mutex.lock();
     if (target != -1 && tmp.objects[target]->bit(specification.hit) <= 0) {
         tmp.gold += tmp.objects[target]->get_gold();
         tmp.objects.erase(tmp.objects.begin() + target);
     } else if (target != -1) {
         tmp.objects[target]->add_effects(get_effect());
     }
-    g_mutex.unlock();
+    tmp.g_mutex.unlock();
     flag = 1;
 }

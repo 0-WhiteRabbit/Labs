@@ -27,7 +27,7 @@ public:
 
     //! Добавление врага в очередь
     void add_enemy(Object *t) override;
-    void refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) override;
+    void refresh(Landscape &tmp, int &flag) override;
 };
 
 

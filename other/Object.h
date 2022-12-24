@@ -31,7 +31,7 @@ struct Effect {
 class Object {
 public:
     //! Функция для обновления состояния объекта, переопределяется в наследниках
-    virtual void refresh(Landscape &tmp, int &flag, std::mutex &mutex) {flag = 1;}
+    virtual void refresh(Landscape &tmp, int &flag) { flag = 1;}
 
     int x=0, y=0; ///< Координаты объекта
 

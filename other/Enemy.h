@@ -25,7 +25,7 @@ public:
 
     int type() final {return 2;}
 
-    void refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) override;
+    void refresh(Landscape &tmp, int &flag) override;
     int bit(int bit_hit) override;
     int get_speed() override;
     void add_effects(Effect _effects) override;

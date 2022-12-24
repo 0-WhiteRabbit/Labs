@@ -1,6 +1,8 @@
 #include <stdexcept>
 #include <thread>
 #include <mutex>
+#include <iostream>
+#include <chrono>
 #include "Landscape.h"
 
 Landscape::~Landscape() {
@@ -18,14 +20,14 @@ Landscape::~Landscape() {
 int Landscape::refresh() {
     ++tik;
     int threads_num = 6;
-    for (int i=0; i < objects.size(); i+=threads_num) { // refresh
+    int s = objects.size();
+    for (int i=0; i < s; i+=threads_num) { // refresh
         std::thread thread_t[threads_num];
         int threads_flags[threads_num];
-        std::mutex g_mutex;
-        for (int j=0; j < threads_num && i+j < objects.size(); ++j) {
-            thread_t[j] = std::thread(&Object::refresh, objects[i+j], std::ref(*this), std::ref(threads_flags[j]), std::ref(g_mutex));
+        for (int j=0; j < threads_num && i+j < s; ++j) {
+            thread_t[j] = std::thread(&Object::refresh, objects[i+j], std::ref(*this), std::ref(threads_flags[j]));
         }
-        for (int j=0; j < threads_num && i+j < objects.size(); ++j) {
+        for (int j=0; j < threads_num && i+j < s; ++j) {
             thread_t[j].join();
             if (threads_flags[j] == 0) {
                 return 0;

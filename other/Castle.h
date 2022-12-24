@@ -8,7 +8,7 @@ class Castle: public Object {
 public:
     int max_stability = 0; ///< Максимальное здоровье
     int current_stability = 0; ///< Текущее здоровье
-    void refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) final;
+    void refresh(Landscape &tmp, int &flag) final;
 
     //! Конструктор по умолчанию
     explicit Castle(int new_max_stability): max_stability(new_max_stability), current_stability(new_max_stability) {}

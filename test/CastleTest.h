@@ -54,7 +54,6 @@ protected:
 
     ~CastleTest() {
         delete castle;
-        delete lair;
     }
 
     void SetUp() override {

@@ -1,8 +1,10 @@
+#include <iostream>
 #include "Enemy.h"
 
-void Enemy::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
-    if (tmp.tik % 10 == 0)
+void Enemy::refresh(Landscape &tmp, int &flag) {
+    if (tmp.tik % 10 == 0) {
         hill -= effects.poisoning;
+    }
 
     if (tmp.tik % get_speed() == 0) {
         const int *t = get_next_pos(tmp);
@@ -19,10 +21,13 @@ void Enemy::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
     }
 
     if (tmp1->x == x && tmp1->y == y) {
+        tmp.g_mutex.lock();
         if (tmp1->bit(hill) <= 0) {
             flag = 0;
+            tmp.g_mutex.unlock();
             return;
         }
+        tmp.g_mutex.unlock();
         flag = 2;
         return;
     }
@@ -77,9 +82,9 @@ const int *Enemy::get_next_pos(Landscape &tmp) {
     int *pos = new int[2];
     int **have_been = new int*[tmp.n];
     Object *tmp1;
-    for (int i=0; i < tmp.objects.size(); ++i) {
-        if (tmp.objects[i]->type() == 1) {
-            tmp1 = tmp.objects[i];
+    for (auto & object : tmp.objects) {
+        if (object->type() == 1) {
+            tmp1 = object;
         }
     }
 
@@ -112,7 +117,6 @@ const int *Enemy::get_next_pos(Landscape &tmp) {
         pos[1] = y;
     }
     if (y-1 >= 0 && tmp.fields[x][y-1]->can_go() && min_l > have_been[x][y-1]) {
-        min_l = have_been[x][y-1];
         pos[0] = x;
         pos[1] = y-1;
     }

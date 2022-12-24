@@ -1,4 +1,5 @@
 #include <stdexcept>
+#include <iostream>
 #include "Lair.h"
 
 void Lair::add_enemy(Object *t) {
@@ -12,18 +13,20 @@ void Lair::add_enemy(Object *t) {
     queue.push_back(t);
 }
 
-void Lair::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
+void Lair::refresh(Landscape &tmp, int &flag) {
     int k = -1;
     for (int i=0; i < queue.size(); ++i) {
         if (queue[i]->get_time() == tmp.tik) {
-            g_mutex.lock(); // lock mutex
+            tmp.g_mutex.lock();
             tmp.build(queue[i]);
-            g_mutex.unlock();
+            tmp.g_mutex.unlock();
             k = i;
             break;
         }
     }
-    if (k != -1)
+
+    if (k != -1) {
         queue.erase(queue.begin() + k);
+    }
     flag = 1;
 }

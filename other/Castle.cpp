@@ -5,7 +5,7 @@ int Castle::bit(int hit) {
     return current_stability;
 }
 
-void Castle::refresh(Landscape &tmp, int &flag, std::mutex &g_mutex) {
+void Castle::refresh(Landscape &tmp, int &flag) {
     if (tmp.tik % 10 == 0 && current_stability < max_stability)
         current_stability += 1;
     flag = 1;

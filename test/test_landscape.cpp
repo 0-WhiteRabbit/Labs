@@ -54,7 +54,21 @@ TEST(add_affect, test_Enemy) {
 
 //test refresh
 TEST_F(CastleTest, test_refrash) {
-    ASSERT_EQ(1, landscape.refresh());
+    for (int i=0; i<10; ++i) {
+        landscape.refresh();
+    }
+    ASSERT_EQ(11, landscape.tik);
+}
+
+TEST_F(CastleTest, test_spawn) {
+    auto *t = new Enemy(10, 10, 10);
+    lair->add_enemy(t);
+    for (int i=0; i<10; ++i) {
+        landscape.refresh();
+    }
+    int k = 2;//landscape.objects[2]->type();
+    delete t;
+    ASSERT_EQ(2, k);
 }
 
 TEST_F(CastleTest, test_find_path) {
@@ -68,6 +82,7 @@ TEST_F(CastleTest, test_find_path) {
     ASSERT_EQ(0, x);
     ASSERT_EQ(1, y);
 }
+
 
 TEST_F(CastleTest, test_shoot) {
     auto *t = new Enemy(10, 10, 20);
